@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77335160ce007774696dfdbd35fb99a1, type: 3}
+  m_Name: 12
+  m_EditorClassIdentifier: 
+  name: Kuzeyli
+  description: "Rakibin masadaki t\xFCm botsuz kartlar kullan\u0131lmadan geri d\xF6ner"
+  cardID: 12
+  artwork: {fileID: 0}
+  Class: {fileID: 21300000, guid: 51a7ac981333c24479c7477e567eaa39, type: 3}
+  skill1: {fileID: 21300000, guid: bd47d253b8f0f884b9f74cc6874f632b, type: 3}
+  skill2: {fileID: 0}
+  speed: {fileID: 0}
