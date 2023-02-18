@@ -5,8 +5,8 @@ using UnityEngine;
 public class Card : ScriptableObject
 {
     public new string name;
-    public string description;
-    public int cardID;
+    public string description1, description2;
+    public int cardID,Güç,Hýz;
     
     public Sprite artwork,Class,skill1,skill2,speed;// kartýn resmini ve 4 köþesindeki yuvalaklarýn iconlarýný yerleþtirmek için
 

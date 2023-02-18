@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: 2
   m_EditorClassIdentifier: 
   name: "Suikast\xE7i"
-  description: "Masadaki kraliyet kartlar\u0131n\u0131n \xF6zelliklerini devre d\u0131\u015F\u0131
-    b\u0131rak\u0131r"
+  description1: 
+  description2: 
   cardID: 2
+  "G\xFC\xE7": 2
   artwork: {fileID: 0}
   Class: {fileID: 21300000, guid: 51a7ac981333c24479c7477e567eaa39, type: 3}
   skill1: {fileID: 21300000, guid: 8ec4ec115e3f21f4183906df8ca385b1, type: 3}

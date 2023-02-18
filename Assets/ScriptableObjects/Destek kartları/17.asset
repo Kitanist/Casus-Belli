@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77335160ce007774696dfdbd35fb99a1, type: 3}
+  m_Name: 17
+  m_EditorClassIdentifier: 
+  name: "H\u0131rs\u0131z"
+  description1: "deste g\xF6r\xFC\u015F\xFC ve \xE7al"
+  description2: "sava\u015Fmadan desteye g\xF6nderme "
+  cardID: 17
+  "G\xFC\xE7": 0
+  "H\u0131z": 3
+  artwork: {fileID: 0}
+  Class: {fileID: 21300000, guid: da66403d794078848b647206b1f4c928, type: 3}
+  skill1: {fileID: 21300000, guid: 213169882b17c244b959481299de6eb0, type: 3}
+  skill2: {fileID: 21300000, guid: 3307c445842716c49badd27993c11329, type: 3}
+  speed: {fileID: 21300000, guid: 21e08315c02e4f343a188ccac35a742e, type: 3}

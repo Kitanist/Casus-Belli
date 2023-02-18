@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: 7
   m_EditorClassIdentifier: 
   name: Ninja
-  description: "Masadaki rakip ordu kartlar\u0131ndan \xE7ift puanl\u0131lar\u0131
-    2 sayar"
+  description1: 
+  description2: 
   cardID: 7
+  "G\xFC\xE7": 4
   artwork: {fileID: 0}
   Class: {fileID: 21300000, guid: 51a7ac981333c24479c7477e567eaa39, type: 3}
   skill1: {fileID: 21300000, guid: 4d38223707fee8d45bb488b0178d20c0, type: 3}
