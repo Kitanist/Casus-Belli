@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoSingeleton<GameManager>
 {
-   
+   public Hand hand;
     void Start()
     {
         

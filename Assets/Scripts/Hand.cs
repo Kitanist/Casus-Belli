@@ -9,23 +9,34 @@ public class Hand : MonoBehaviour
     public List<Card> handCard;
     public GameObject CardPrefab;
  
-    public TMP_Text nameText;
+    
 
     public Transform [] spawnTransforms;
     public bool [] emptySlot;
 
    public void DrawCardToHand () {
-    //CardPrefabı Son Çekilen eldeki karta göre ayarlancak
-  
-    GameObject drawedCard= Instantiate(CardPrefab,spawnTransforms[handCard.Count-1]);
    
+   // oluştur
+    GameObject drawedCard= Instantiate(CardPrefab,spawnTransforms[handCard.Count-1]);
+    drawedCard.GetComponent<CardDisplay>().card=handCard[handCard.Count-1];//cartın özelliklerini elimdeki son karta göre değiştir
+    drawedCard.GetComponent<CardDisplay>().Init();// kartı çalıştır
     
-       nameText=drawedCard.GetComponentInChildren<TMP_Text>();
-      nameText.text=handCard[handCard.Count-1].name;
       
+    if(emptySlot[handCard.Count-1])  {
     drawedCard.transform.position=spawnTransforms[handCard.Count-1].position;
-    drawedCard.transform.parent=this.transform;
     emptySlot[handCard.Count-1]=false;
+    }
+    else{
+      for(int i=0;i<emptySlot.Length;i++){
+         if(emptySlot[i]){
+            drawedCard.transform.position=spawnTransforms[i].position;
+            drawedCard.transform.parent=this.transform;
+            emptySlot[i]=false;
+            break;
+         }
+      }
+    }
+  
     
    }
 }

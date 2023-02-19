@@ -22,11 +22,12 @@ public class Deck : MonoBehaviour
         }
     }
     public void DrawCard () {
+        //çekilen kartı tut listeden çıkar  eline ekle elindeki çekme fonksiyonunu calistir
         Card tmpCard= deck[0];
         deck.RemoveAt(0);
         hand.handCard.Add(tmpCard);
         hand.DrawCardToHand();
-
+        // cekilen kartin imagesini kapa
        Image img= DeckImage[DeckImage.Count-1];
        DeckImage.RemoveAt(DeckImage.Count-1);
        Destroy(img);

@@ -852,7 +852,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1720678070891540879
 Transform:
   m_ObjectHideFlags: 0
@@ -1118,10 +1118,10 @@ MonoBehaviour:
   nameText: {fileID: 1720678070236899910}
   descriptionText: {fileID: 1720678071843532095}
   descriptionText2: {fileID: 1720678070860516365}
-  artworkImage: {fileID: 0}
-  ClassImage: {fileID: 0}
-  skill1Image: {fileID: 0}
-  skill2Image: {fileID: 0}
+  ArtworkMat: {fileID: 1720678070385793937}
+  ClassMat: {fileID: 1720678070617820391}
+  skill1Mat: {fileID: 1720678069908193029}
+  skill2Mat: {fileID: 1720678070498125018}
 --- !u!1 &1720678071534184494
 GameObject:
   m_ObjectHideFlags: 0
@@ -1238,7 +1238,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1720678071784776380
 Transform:
   m_ObjectHideFlags: 0
