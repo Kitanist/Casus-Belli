@@ -13,13 +13,19 @@ MonoBehaviour:
   m_Name: 1
   m_EditorClassIdentifier: 
   name: "K\xF6yl\xFC"
-  description1: 
-  description2: 
+  description1: "Masada yan\u0131nda  ba\u015Fka bir ordu kart\u0131  varsa 4 puan
+    kabul  ediniz."
+  description2: "G\xFCc\xFC 1"
   cardID: 1
   "G\xFC\xE7": 1
   "H\u0131z": 0
-  artwork: {fileID: 0}
+  artwork: {fileID: 21300000, guid: b161d240046dc854999b1ee6ba62ce52, type: 3}
   Class: {fileID: 21300000, guid: 51a7ac981333c24479c7477e567eaa39, type: 3}
   skill1: {fileID: 21300000, guid: 465d8353c9730af4e8a9eb36f3c20164, type: 3}
   skill2: {fileID: 21300000, guid: 56e7436d10a7dec44b2dbea3eeff743d, type: 3}
   speed: {fileID: 21300000, guid: f4e47ba27abbdf34991bd5d81acd3713, type: 3}
+  artworkMat: {fileID: 2100000, guid: 0a85bdcadc28a78468d94b7ab7862e9c, type: 2}
+  ClassMat: {fileID: 2100000, guid: dfb8e7c20dc7e8c4f8eb8868fc057271, type: 2}
+  Skill1Mat: {fileID: 2100000, guid: 028aa65970d1b564b9d3f111b3a07f75, type: 2}
+  Skill2Mat: {fileID: 2100000, guid: f51e76493b6f58f4987a5693ca55610a, type: 2}
+  Speedmat: {fileID: 2100000, guid: 5d0a072a9961d284491d53bee7bf8598, type: 2}

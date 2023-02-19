@@ -13,13 +13,19 @@ MonoBehaviour:
   m_Name: 5
   m_EditorClassIdentifier: 
   name: Cellat
-  description1: 
-  description2: 
+  description1: "Oynad\u0131\u011F\u0131n\u0131zdan sonraki tur rakip,  destek kart\u0131 
+    kullanamaz."
+  description2: "G\xFCc\xFC 3"
   cardID: 5
   "G\xFC\xE7": 3
   "H\u0131z": 0
-  artwork: {fileID: 0}
+  artwork: {fileID: 21300000, guid: b161d240046dc854999b1ee6ba62ce52, type: 3}
   Class: {fileID: 21300000, guid: 51a7ac981333c24479c7477e567eaa39, type: 3}
   skill1: {fileID: 21300000, guid: b656b6ddea8f413499f8fa8f2b729e8d, type: 3}
   skill2: {fileID: 21300000, guid: 1b316a7470ae7fe4883abbe25957b416, type: 3}
   speed: {fileID: 21300000, guid: f4e47ba27abbdf34991bd5d81acd3713, type: 3}
+  artworkMat: {fileID: 2100000, guid: 0a85bdcadc28a78468d94b7ab7862e9c, type: 2}
+  ClassMat: {fileID: 2100000, guid: dfb8e7c20dc7e8c4f8eb8868fc057271, type: 2}
+  Skill1Mat: {fileID: 2100000, guid: 84cecd483881e9a42ad8ce70026877dd, type: 2}
+  Skill2Mat: {fileID: 2100000, guid: 9d6a7a6dcf54c1947869df418ecbba3c, type: 2}
+  Speedmat: {fileID: 2100000, guid: 5d0a072a9961d284491d53bee7bf8598, type: 2}

@@ -9,6 +9,7 @@ public class Card : ScriptableObject
     public int cardID,Güç,Hýz;
     
     public Sprite artwork,Class,skill1,skill2,speed;// kartýn resmini ve 4 köþesindeki yuvalaklarýn iconlarýný yerleþtirmek için
+    public Material artworkMat, ClassMat, Skill1Mat, Skill2Mat, Speedmat;
 
     
    

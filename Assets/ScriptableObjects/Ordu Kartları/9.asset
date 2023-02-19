@@ -14,12 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Piyade
   description1: 
-  description2: 
+  description2: "G\xFCc\xFC 4"
   cardID: 9
   "G\xFC\xE7": 4
   "H\u0131z": 0
-  artwork: {fileID: 0}
+  artwork: {fileID: 21300000, guid: b161d240046dc854999b1ee6ba62ce52, type: 3}
   Class: {fileID: 21300000, guid: 51a7ac981333c24479c7477e567eaa39, type: 3}
   skill1: {fileID: 21300000, guid: f4e47ba27abbdf34991bd5d81acd3713, type: 3}
   skill2: {fileID: 21300000, guid: 12b16252cce44d64b824ef691b63d2f7, type: 3}
   speed: {fileID: 21300000, guid: f4e47ba27abbdf34991bd5d81acd3713, type: 3}
+  artworkMat: {fileID: 2100000, guid: 0a85bdcadc28a78468d94b7ab7862e9c, type: 2}
+  ClassMat: {fileID: 2100000, guid: dfb8e7c20dc7e8c4f8eb8868fc057271, type: 2}
+  Skill1Mat: {fileID: 2100000, guid: 5d0a072a9961d284491d53bee7bf8598, type: 2}
+  Skill2Mat: {fileID: 2100000, guid: b09ef97ff667e91478a485ab773edb8e, type: 2}
+  Speedmat: {fileID: 2100000, guid: 5d0a072a9961d284491d53bee7bf8598, type: 2}
