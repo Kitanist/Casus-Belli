@@ -11,18 +11,21 @@ public class Hand : MonoBehaviour
  
     public TMP_Text nameText;
 
-    public Transform spawnTransform;
+    public Transform [] spawnTransforms;
+    public bool [] emptySlot;
 
    public void DrawCardToHand () {
     //CardPrefabı Son Çekilen eldeki karta göre ayarlancak
   
-    GameObject drawedCard= Instantiate(CardPrefab,spawnTransform);
+    GameObject drawedCard= Instantiate(CardPrefab,spawnTransforms[handCard.Count-1]);
+   
     
        nameText=drawedCard.GetComponentInChildren<TMP_Text>();
       nameText.text=handCard[handCard.Count-1].name;
       
-    drawedCard.transform.position=spawnTransform.position+new Vector3(handCard.Count*1f,0,0);
+    drawedCard.transform.position=spawnTransforms[handCard.Count-1].position;
     drawedCard.transform.parent=this.transform;
+    emptySlot[handCard.Count-1]=false;
     
    }
 }

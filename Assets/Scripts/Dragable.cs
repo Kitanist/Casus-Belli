@@ -7,13 +7,14 @@ using UnityEngine.UI;
 public class Dragable : MonoBehaviour
 {
   public Vector3 offset;
+  
   public Hand hand;
  public Vector3 firstPos;
 private void OnMouseDown() {
-    //offset=transform.position - MouseWorldPos();
+    offset=transform.position - MouseWorldPos();
     transform.GetComponent<Collider>().enabled=false;
     firstPos=transform.position;
-    transform.position=MouseWorldPos()+offset;
+   
    /*
     for(int i=0;i<hand.handCard.Count;i++){
         if(hand.handCard[i]==this.gameObject.GetComponent<Card>()){
@@ -34,16 +35,30 @@ private void OnMouseUp() {
             if(info.transform.tag=="DropZone"){
                if(info.transform.gameObject.GetComponent<Hand>())
                {
-                transform.position=info.transform.position+new Vector3(hand.handCard.Count*1f,0,0);
+                for(int i=0;i<info.transform.gameObject.GetComponent<Hand>().emptySlot.Length;i++){
+                    if(info.transform.gameObject.GetComponent<Hand>().emptySlot[i]){
+
+                        transform.position=info.transform.gameObject.GetComponent<Hand>().spawnTransforms[i].position;
+                        transform.parent=info.transform;
+                        break;
+                    }
+                }
+                
 
                }
                 
                 else{
                // hand.handCard.RemoveAt();    
-                
+                for(int i=0;i<hand.handCard.Count;i++){
+                    if(hand.handCard[i].name==GetComponent<CardDisplay>().name){
+                        hand.emptySlot[i]=true;
+                        
+                        Debug.Log("esit "+i);
+                    }
+                }
                 transform.position=info.transform.position;
                 }
-                 
+                Debug.Log("dropzone"); 
               //  transform.GetComponent<Collider>().enabled=false;
               //tur sonu kitlesin simdi deil
             }
