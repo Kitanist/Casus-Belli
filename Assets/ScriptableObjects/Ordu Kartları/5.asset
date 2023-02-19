@@ -17,8 +17,9 @@ MonoBehaviour:
   description2: 
   cardID: 5
   "G\xFC\xE7": 3
+  "H\u0131z": 0
   artwork: {fileID: 0}
   Class: {fileID: 21300000, guid: 51a7ac981333c24479c7477e567eaa39, type: 3}
   skill1: {fileID: 21300000, guid: b656b6ddea8f413499f8fa8f2b729e8d, type: 3}
-  skill2: {fileID: 0}
-  speed: {fileID: 0}
+  skill2: {fileID: 21300000, guid: 1b316a7470ae7fe4883abbe25957b416, type: 3}
+  speed: {fileID: 21300000, guid: f4e47ba27abbdf34991bd5d81acd3713, type: 3}
