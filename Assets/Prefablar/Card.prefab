@@ -93,7 +93,7 @@ MeshCollider:
   m_GameObject: {fileID: 1720678069908193029}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
@@ -559,7 +559,7 @@ MeshCollider:
   m_GameObject: {fileID: 1720678070498125018}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
@@ -1045,7 +1045,7 @@ GameObject:
   - component: {fileID: 2226766207532467129}
   m_Layer: 0
   m_Name: Card
-  m_TagString: Untagged
+  m_TagString: Card
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1058,8 +1058,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1720678071347826636}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0.7071068, w: 0}
-  m_LocalPosition: {x: -19.390028, y: 2.0563397, z: -22.484447}
-  m_LocalScale: {x: 0.06, y: 0.125, z: 0.06}
+  m_LocalPosition: {x: -19.391, y: 2.0559, z: -22.484447}
+  m_LocalScale: {x: 0.06, y: 0.11, z: 0.06}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1720678071277302111}

@@ -30,8 +30,13 @@ private void OnMouseUp() {
         var rayOrgin=Camera.main.transform.position;
         var rayDirection = MouseWorldPos()-Camera.main.transform.position;
         RaycastHit info;
+      
         if(Physics.Raycast(rayOrgin,rayDirection, out info))
         {
+            if(info.transform.tag=="Card"){
+                transform.position=firstPos;
+            }
+              
             if(info.transform.tag=="DropZone"){
                if(info.transform.gameObject.GetComponent<Hand>())
                {
@@ -57,15 +62,15 @@ private void OnMouseUp() {
                }
                 
                 else{
-                  
-                for(int i=0;i<GameManager.Instance. hand.handCard.Count;i++){
+                   
+                        for(int i=0;i<GameManager.Instance. hand.handCard.Count;i++){
                     if( GameManager.Instance.hand.handCard[i].name==GetComponent<CardDisplay>().card.name){
                         GameManager.Instance.hand.handCard.RemoveAt(i);
                         // eğer parentların konumu aynı ise 
                         for(int j=0;j< GameManager.Instance.hand.emptySlot.Length;j++){
                             if(transform.parent.position== GameManager.Instance.hand.spawnTransforms[j].position){
                                  GameManager.Instance.hand.emptySlot[j]=true;
-                                 Debug.Log("konumlar ayni");
+                        
                                  break;
                             }
                         }
@@ -77,6 +82,11 @@ private void OnMouseUp() {
                 }
                 transform.position=info.transform.position;
                 transform.parent=info.transform;
+                    
+                  
+                   
+                  
+                
                 }
                 
               //  transform.GetComponent<Collider>().enabled=false;
@@ -85,6 +95,7 @@ private void OnMouseUp() {
             
         }
         else{
+            Debug.Log("ilkpos");
                 transform.position=firstPos;
                      
             }

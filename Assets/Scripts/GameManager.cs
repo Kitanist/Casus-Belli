@@ -5,6 +5,8 @@ using UnityEngine;
 public class GameManager : MonoSingeleton<GameManager>
 {
    public Hand hand;
+   public int defaultMaxCardCount=2;
+   public int playerMaxCardCount=2;
     void Start()
     {
         

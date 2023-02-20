@@ -6,9 +6,9 @@ public class Card : ScriptableObject
 {
     public new string name;
     public string description1, description2;
-    public int cardID,Güç,Hýz;
+    public int cardID,strong,fast;
     
-    public Sprite artwork,Class,skill1,skill2,speed;// kartýn resmini ve 4 köþesindeki yuvalaklarýn iconlarýný yerleþtirmek için
+    public Sprite artwork,Class,skill1,skill2,speed;// kartï¿½n resmini ve 4 kï¿½ï¿½esindeki yuvalaklarï¿½n iconlarï¿½nï¿½ yerleï¿½tirmek iï¿½in
     public Material artworkMat, ClassMat, Skill1Mat, Skill2Mat, Speedmat;
 
     

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
+
 public class Deck : MonoBehaviour
 {
     public List<Card> deck;
@@ -23,6 +24,7 @@ public class Deck : MonoBehaviour
     }
     public void DrawCard () {
         //çekilen kartı tut listeden çıkar  eline ekle elindeki çekme fonksiyonunu calistir
+        if(GameManager.Instance.playerMaxCardCount>hand.handCard.Count){
         Card tmpCard= deck[0];
         deck.RemoveAt(0);
         hand.handCard.Add(tmpCard);
@@ -31,6 +33,12 @@ public class Deck : MonoBehaviour
        Image img= DeckImage[DeckImage.Count-1];
        DeckImage.RemoveAt(DeckImage.Count-1);
        Destroy(img);
+        }
+        else{
+            // daha fazla kart çekilemez bildirimi
+            Debug.Log("daha fazla kart çekilemez");
+        }
+       
        
     }
 }
