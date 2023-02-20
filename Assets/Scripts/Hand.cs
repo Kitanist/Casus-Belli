@@ -30,11 +30,12 @@ public class Hand : MonoBehaviour
     drawedCard.GetComponent<CardDisplay>().Init();// kartı çalıştır
 
     drawedCard.transform .position=firstSpawnPos.position;
-    drawedCard.transform.DORotate(new Vector3(90,0,180),.5f).OnComplete(()=>drawedCard.transform.DOMove(secondSpawnPos.position,1).SetEase(Ease.OutSine).OnComplete(()=> SetPositon(drawedCard)));
-    //drawedCard.transform.DOMove(secondSpawnPos.position,1).SetEase(Ease.OutSine).OnComplete(()=> SetPositon(drawedCard));
-
-
+    drawedCard.transform.DOMove(secondSpawnPos.position, 1).SetEase(Ease.OutSine).OnComplete(()=>drawedCard.transform.DORotate(new Vector3(90, 0, 180), .5f).SetEase(Ease.OutSine).OnComplete(()=> SetPositon(drawedCard)));
+        //drawedCard.transform.DOMove(secondSpawnPos.position,1).SetEase(Ease.OutSine).OnComplete(()=> SetPositon(drawedCard));
         
+            
+
+
    }
 
    public void  SetPositon (GameObject drawedCard) {
