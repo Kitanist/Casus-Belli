@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using DG.Tweening;
 public class Dragable : MonoBehaviour
 {
   public Vector3 offset;
@@ -34,7 +35,7 @@ private void OnMouseUp() {
         if(Physics.Raycast(rayOrgin,rayDirection, out info))
         {
             if(info.transform.tag=="Card"){
-                transform.position=firstPos;
+             transform.DOMove(firstPos,.3f).SetEase(Ease.InBack);
             }
               
             if(info.transform.tag=="DropZone"){
@@ -43,8 +44,9 @@ private void OnMouseUp() {
                 if(transform.root!=info.transform){
                     for(int i=0;i<info.transform.gameObject.GetComponent<Hand>().emptySlot.Length;i++){
                     if(info.transform.gameObject.GetComponent<Hand>().emptySlot[i]){
-
-                        transform.position=info.transform.gameObject.GetComponent<Hand>().spawnTransforms[i].position;
+                        transform.DOMove(GameManager.Instance.hand.spawnTransforms[i].position,0.5f).SetEase(Ease.InOutCubic).OnComplete(()=>transform.DORotate(new Vector3(90,0,180),0.05f));
+                        
+                       // transform.position=GameManager.Instance.hand.spawnTransforms[i].position;
                         info.transform.gameObject.GetComponent<Hand>().emptySlot[i]=false;
                         info.transform.gameObject.GetComponent<Hand>().handCard.Add(gameObject.GetComponent<CardDisplay>().card);
                         transform.parent=info.transform.GetChild(i); //bu slotdaki childinı parentı yaptık
@@ -54,7 +56,7 @@ private void OnMouseUp() {
                
                 }
                  else{
-                    transform.position=firstPos;
+                    transform.DOMove(firstPos,.3f).SetEase(Ease.InBack);
                 }
                 
                 
@@ -80,7 +82,8 @@ private void OnMouseUp() {
                         break;
                     }
                 }
-                transform.position=info.transform.position;
+                transform.DOMove(info.transform.position,.5f).SetEase(Ease.OutBounce).OnComplete(()=>transform.DORotate(new Vector3(90,0,0),0.05f));
+               
                 transform.parent=info.transform;
                     
                   
@@ -96,8 +99,8 @@ private void OnMouseUp() {
         }
         else{
             Debug.Log("ilkpos");
-                transform.position=firstPos;
-                     
+                transform.DOMove(firstPos,.3f).SetEase(Ease.InBack);
+               
             }
                transform.GetComponent<Collider>().enabled=true;   
         

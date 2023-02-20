@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -394,7 +394,7 @@ GameObject:
   - component: {fileID: 117773987}
   - component: {fileID: 117773986}
   - component: {fileID: 117773985}
-  - component: {fileID: 117773984}
+  - component: {fileID: 117773988}
   m_Layer: 5
   m_Name: 'SupportDeckButton '
   m_TagString: Untagged
@@ -423,41 +423,6 @@ RectTransform:
   m_AnchoredPosition: {x: 779, y: -377.12598}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &117773984
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 117773982}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b77593b352c2ff548ae06bcab3bdfaf8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  deck:
-  - {fileID: 11400000, guid: 4319f000bf2238c41af1022c4ee52883, type: 2}
-  - {fileID: 11400000, guid: 13c14b5fd232fa24991afb2f554a4541, type: 2}
-  - {fileID: 11400000, guid: 99b0fc3d48e09f245841e3680fce7526, type: 2}
-  - {fileID: 11400000, guid: 2712a8e846d84854b94311350be5f0bf, type: 2}
-  - {fileID: 11400000, guid: b5c33a0d979c4e54891637b800c17f3f, type: 2}
-  - {fileID: 11400000, guid: 3b40c0ed654f0354c8d008d55304e93e, type: 2}
-  - {fileID: 11400000, guid: 31586e03f2f3c7c4db165ad3524eeaa4, type: 2}
-  - {fileID: 11400000, guid: ce5b3d476ee8ae04dbde6ae5e4445b24, type: 2}
-  - {fileID: 11400000, guid: c2e4ace37d15b554f8a4421a7eddc53e, type: 2}
-  - {fileID: 11400000, guid: 68da7e124aa0ba3419ec13b665b015c3, type: 2}
-  DeckImage:
-  - {fileID: 1925602554}
-  - {fileID: 499161619}
-  - {fileID: 1179880296}
-  - {fileID: 1601051149}
-  - {fileID: 1028281455}
-  - {fileID: 1120084350}
-  - {fileID: 399625920}
-  - {fileID: 37494610}
-  - {fileID: 531372868}
-  - {fileID: 1284717204}
-  hand: {fileID: 1824053090}
 --- !u!114 &117773985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -502,7 +467,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 117773984}
+      - m_Target: {fileID: 117773988}
         m_TargetAssemblyTypeName: Deck, Assembly-CSharp
         m_MethodName: DrawCard
         m_Mode: 1
@@ -552,6 +517,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 117773982}
   m_CullTransparentMesh: 1
+--- !u!114 &117773988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 117773982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d9434da4b3978a4eaa83973f0e76c68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deck:
+  - {fileID: 11400000, guid: 4319f000bf2238c41af1022c4ee52883, type: 2}
+  - {fileID: 11400000, guid: 13c14b5fd232fa24991afb2f554a4541, type: 2}
+  - {fileID: 11400000, guid: 99b0fc3d48e09f245841e3680fce7526, type: 2}
+  - {fileID: 11400000, guid: 2712a8e846d84854b94311350be5f0bf, type: 2}
+  - {fileID: 11400000, guid: b5c33a0d979c4e54891637b800c17f3f, type: 2}
+  - {fileID: 11400000, guid: 3b40c0ed654f0354c8d008d55304e93e, type: 2}
+  - {fileID: 11400000, guid: 31586e03f2f3c7c4db165ad3524eeaa4, type: 2}
+  - {fileID: 11400000, guid: ce5b3d476ee8ae04dbde6ae5e4445b24, type: 2}
+  - {fileID: 11400000, guid: c2e4ace37d15b554f8a4421a7eddc53e, type: 2}
+  - {fileID: 11400000, guid: 68da7e124aa0ba3419ec13b665b015c3, type: 2}
+  DeckImage:
+  - {fileID: 1925602554}
+  - {fileID: 499161619}
+  - {fileID: 1179880296}
+  - {fileID: 1601051149}
+  - {fileID: 1028281455}
+  - {fileID: 1120084350}
+  - {fileID: 399625920}
+  - {fileID: 37494610}
+  - {fileID: 531372868}
+  - {fileID: 1284717204}
+  hand: {fileID: 1824053090}
 --- !u!1 &169764524
 GameObject:
   m_ObjectHideFlags: 0
@@ -1142,7 +1142,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SendPointerHoverToParent: 1
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
@@ -1346,7 +1345,7 @@ GameObject:
   - component: {fileID: 554411013}
   - component: {fileID: 554411017}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: HUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1450,7 +1449,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hand: {fileID: 1824053090}
   armyDeck: {fileID: 232890789}
-  supDeck: {fileID: 0}
+  supDeck: {fileID: 117773988}
 --- !u!1 &711744714
 GameObject:
   m_ObjectHideFlags: 0
@@ -1493,7 +1492,7 @@ GameObject:
   - component: {fileID: 728223720}
   - component: {fileID: 728223718}
   - component: {fileID: 728223717}
-  - component: {fileID: 728223716}
+  - component: {fileID: 728223721}
   m_Layer: 0
   m_Name: Quad
   m_TagString: DropZone
@@ -1501,20 +1500,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!64 &728223716
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 728223715}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &728223717
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1585,6 +1570,19 @@ RectTransform:
   m_AnchoredPosition: {x: -2.533164, y: 0.33676654}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!65 &728223721
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 728223715}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.748834, y: 1.3380678, z: 6.1232336e-17}
+  m_Center: {x: 0.07645851, y: 0.16903415, z: 0}
 --- !u!1 &731220991
 GameObject:
   m_ObjectHideFlags: 0
@@ -1850,7 +1848,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 944287702}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 554411017}
+        m_TargetAssemblyTypeName: HUD, Assembly-CSharp
+        m_MethodName: EndTurn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &944287702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3086,7 +3096,7 @@ GameObject:
   - component: {fileID: 1755693300}
   - component: {fileID: 1755693299}
   - component: {fileID: 1755693298}
-  - component: {fileID: 1755693297}
+  - component: {fileID: 1755693301}
   m_Layer: 0
   m_Name: Quad (1)
   m_TagString: DropZone
@@ -3094,20 +3104,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!64 &1755693297
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1755693296}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &1755693298
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3178,6 +3174,19 @@ RectTransform:
   m_AnchoredPosition: {x: -1.26, y: 0.37}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!65 &1755693301
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1755693296}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.0734591, y: 1.310802, z: 0}
+  m_Center: {x: 0.0703466, y: 0.15540054, z: 3.0616168e-17}
 --- !u!1 &1781878555
 GameObject:
   m_ObjectHideFlags: 0
@@ -3335,8 +3344,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   handCard: []
   CardPrefab: {fileID: 1720678071347826636, guid: 00657aaa27c77724dba5dbf650d4724f, type: 3}
+  cardCount: 0
   firstSpawnPos: {fileID: 1454433952}
   secondSpawnPos: {fileID: 746917467}
+  armyDeckButton: {fileID: 232890790}
+  supportDeckButton: {fileID: 117773985}
   spawnTransforms:
   - {fileID: 711744715}
   - {fileID: 12943469}
@@ -3437,7 +3449,7 @@ GameObject:
   - component: {fileID: 1833555163}
   - component: {fileID: 1833555162}
   - component: {fileID: 1833555161}
-  - component: {fileID: 1833555160}
+  - component: {fileID: 1833555164}
   m_Layer: 0
   m_Name: Quad (2)
   m_TagString: DropZone
@@ -3445,20 +3457,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!64 &1833555160
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1833555159}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &1833555161
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3529,6 +3527,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0.13099998, y: 0.37}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!65 &1833555164
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1833555159}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9319112, y: 1.2991457, z: 6.1232336e-17}
+  m_Center: {x: 0.0045978297, y: 0.14957269, z: 0}
 --- !u!1 &1925602552
 GameObject:
   m_ObjectHideFlags: 0
@@ -3616,7 +3627,7 @@ GameObject:
   - component: {fileID: 2003687204}
   - component: {fileID: 2003687203}
   - component: {fileID: 2003687202}
-  - component: {fileID: 2003687201}
+  - component: {fileID: 2003687205}
   m_Layer: 0
   m_Name: Quad (3)
   m_TagString: DropZone
@@ -3624,20 +3635,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!64 &2003687201
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2003687200}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &2003687202
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3708,6 +3705,19 @@ RectTransform:
   m_AnchoredPosition: {x: 1.409, y: 0.37}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!65 &2003687205
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2003687200}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9538242, y: 1.2998238, z: 6.1232336e-17}
+  m_Center: {x: 0.03766478, y: 0.14991158, z: 0}
 --- !u!1 &2023099209
 GameObject:
   m_ObjectHideFlags: 0
