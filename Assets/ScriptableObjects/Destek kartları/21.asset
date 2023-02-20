@@ -23,3 +23,8 @@ MonoBehaviour:
   skill1: {fileID: 21300000, guid: fedcf2e9b68da7e41bf583b4d9e435b5, type: 3}
   skill2: {fileID: 21300000, guid: b76c5bf12492f1c4195051cce6c013ad, type: 3}
   speed: {fileID: 21300000, guid: 21e08315c02e4f343a188ccac35a742e, type: 3}
+  artworkMat: {fileID: 0}
+  ClassMat: {fileID: 2100000, guid: 2dff2b11501003f45b8116d300ff240c, type: 2}
+  Skill1Mat: {fileID: 2100000, guid: b287c2fa966b27647b6145c478362f19, type: 2}
+  Skill2Mat: {fileID: 2100000, guid: ee3fc92be46c25c4aa6a6d7daaf1dd96, type: 2}
+  Speedmat: {fileID: 2100000, guid: 7d0ca7054e987954c86114104c53d761, type: 2}
