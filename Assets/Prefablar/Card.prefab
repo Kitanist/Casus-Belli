@@ -1088,6 +1088,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: {x: -0.5, y: -0.5, z: -0.5}
+  CardUI: {fileID: 6772621341698492614, guid: 488d621a6cc9bf64997d06c0371c2d06, type: 3}
   firstPos: {x: 0, y: 0, z: 0}
 --- !u!65 &8155589267170920623
 BoxCollider:
@@ -1122,6 +1123,7 @@ MonoBehaviour:
   ClassMat: {fileID: 1720678070617820391}
   skill1Mat: {fileID: 1720678069908193029}
   skill2Mat: {fileID: 1720678070498125018}
+  speedMat: {fileID: 1720678070236151497}
 --- !u!1 &1720678071534184494
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,15 +7,24 @@ using UnityEngine.UI;
 using DG.Tweening;
 public class Dragable : MonoBehaviour
 {
-  public Vector3 offset;
-  
-  
+    #region Variables
+    public Vector3 offset;
+
+    public GameObject CardUI;
  public Vector3 firstPos;
-private void OnMouseDown() {
+
+    #endregion
+
+    public void Update()
+    {
+        
+
+    }
+    private void OnMouseDown() {
     offset=transform.position - MouseWorldPos();
     transform.GetComponent<Collider>().enabled=false;
     firstPos=transform.position;
-   
+       
    /*
     for(int i=0;i<hand.handCard.Count;i++){
         if(hand.handCard[i]==this.gameObject.GetComponent<Card>()){
@@ -82,7 +91,7 @@ private void OnMouseUp() {
                         break;
                     }
                 }
-                transform.DOMove(info.transform.position,.5f).SetEase(Ease.OutBounce).OnComplete(()=>transform.DORotate(new Vector3(90,0,0),0.05f));
+                transform.DOMove(info.transform.position + new Vector3(0,0,-0.01f),.5f).SetEase(Ease.OutBounce).OnComplete(()=>transform.DORotate(new Vector3(90,0,0),0.05f));
                
                 transform.parent=info.transform;
                     
