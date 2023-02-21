@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class HUD : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class HUD : MonoBehaviour
   public SupportDeck supDeck;
   private bool playerIsPlay=false;
   public GameObject[] dropAreaObjects;
+  
   public void  EndTurn () {
 if(hand.cardCount==GameManager.Instance.playerMaxCardCount){
        
@@ -42,8 +44,14 @@ if(hand.cardCount==GameManager.Instance.playerMaxCardCount){
    CardDisplay[] obj= hand.GetComponentsInChildren<CardDisplay>();
    playerIsPlay=false;
    for(int i=0;i<obj.Length;i++){
-    Destroy(obj[i].gameObject);
+    if(obj[i]){
+   obj[i].transform.DORotate(new Vector3(90,0,0),.1f);
+   obj[i].transform.DOMove(hand.firstSpawnPos.position,0.5f).SetEase(Ease.InCubic);
+    }
+   
    }
+   StartCoroutine(DestroyObj(obj));//objlerin yok edilmesi için  sahne düzenlendi
+   
    for(int i = 0; i < hand.emptySlot.Length ; i++) {
     hand.emptySlot[i]=true;   //hepsibi boşaltmak lazım
    }
@@ -60,6 +68,13 @@ if(hand.cardCount==GameManager.Instance.playerMaxCardCount){
 
 
    
+  } 
+  IEnumerator DestroyObj(CardDisplay[]obj){
+    yield return new WaitForSeconds(.5f);
+    for(int i = 0; i < obj.Length; i++) {
+      if(obj[i])
+       Destroy(obj[i].gameObject);
+   }
   }
 
 }

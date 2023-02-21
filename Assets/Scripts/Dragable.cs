@@ -24,16 +24,16 @@ public class Dragable : MonoBehaviour
     offset=transform.position - MouseWorldPos();
     transform.GetComponent<Collider>().enabled=false;
     firstPos=transform.position;
-       
-   /*
-    for(int i=0;i<hand.handCard.Count;i++){
-        if(hand.handCard[i]==this.gameObject.GetComponent<Card>()){
-            Debug.Log(i);
-        }
-    }*/
+   
+    
 }
 private void OnMouseDrag() {
-        transform.position=MouseWorldPos();
+        
+        
+        transform.position+=new Vector3(0,0,-0.1f);
+        float z=Mathf.Clamp(transform.position.z,-7,-8);
+        transform.position=new Vector3(MouseWorldPos().x,MouseWorldPos().y,z);
+ 
 
     }
 private void OnMouseUp() {
