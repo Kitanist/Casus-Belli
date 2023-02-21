@@ -1450,6 +1450,11 @@ MonoBehaviour:
   hand: {fileID: 1824053090}
   armyDeck: {fileID: 232890789}
   supDeck: {fileID: 117773988}
+  dropAreaObjects:
+  - {fileID: 728223715}
+  - {fileID: 1755693296}
+  - {fileID: 1833555159}
+  - {fileID: 2003687200}
 --- !u!1 &711744714
 GameObject:
   m_ObjectHideFlags: 0
