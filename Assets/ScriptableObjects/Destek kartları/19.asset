@@ -18,12 +18,12 @@ MonoBehaviour:
   cardID: 19
   strong: 0
   fast: 1
-  artwork: {fileID: 0}
+  artwork: {fileID: 21300000, guid: 013de788b56c4dc48a4547a9945c13b8, type: 3}
   Class: {fileID: 21300000, guid: da66403d794078848b647206b1f4c928, type: 3}
   skill1: {fileID: 21300000, guid: ac8bff66e9a1d5b4bb2c868237cb4084, type: 3}
   skill2: {fileID: 21300000, guid: 02e8e2e83163f604ab3c924d85fe0432, type: 3}
   speed: {fileID: 21300000, guid: f4e47ba27abbdf34991bd5d81acd3713, type: 3}
-  artworkMat: {fileID: 2100000, guid: 6344448eb51d89a42971dc8e5a0bbefd, type: 2}
+  artworkMat: {fileID: 2100000, guid: 3c7881542abae414a9d08ea9904b8c23, type: 2}
   ClassMat: {fileID: 2100000, guid: 2dff2b11501003f45b8116d300ff240c, type: 2}
   Skill1Mat: {fileID: 2100000, guid: 9174bdbc76f6c9644a1481be589a6921, type: 2}
   Skill2Mat: {fileID: 2100000, guid: 23f79f36577dd1a4383f19b06ac3e115, type: 2}
