@@ -30,7 +30,7 @@ public class Dragable : MonoBehaviour
 private void OnMouseDrag() {
         
         transform.position=MouseWorldPos();
-       transform.localPosition+=new Vector3(0,0,-0.05f);      
+       transform.localPosition+=new Vector3(0,0,-0.1f);      
        float z= Mathf.Clamp(transform.localPosition.z,-.5f,3);
        transform.localPosition=new Vector3(transform.localPosition.x,transform.localPosition.y,z);
        

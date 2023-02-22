@@ -13,6 +13,7 @@ public class HUD : MonoBehaviour
   private bool playerIsPlay=false;
   public GameObject[] dropAreaObjects;
   
+  
   public void  EndTurn () {
 if(hand.cardCount==GameManager.Instance.playerMaxCardCount){
        
