@@ -49,7 +49,9 @@ public class BattleManager :MonoSingeleton<BattleManager>
                otherStrongTotal+=otherStrongs[i];
             }
         }
+        
     }
+    //karþýlaþtýma yabcaz
     public void RefreshGrapichs () {
         
     }

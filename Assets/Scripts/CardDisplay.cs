@@ -13,7 +13,7 @@ public class CardDisplay : MonoBehaviour
    
     
     public GameObject ArtworkMat, ClassMat, skill1Mat, skill2Mat,speedMat;
-
+    public int Choosed = 0;
     private void Start()
     {
       

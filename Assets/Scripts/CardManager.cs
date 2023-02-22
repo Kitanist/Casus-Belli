@@ -191,6 +191,92 @@ public class CardManager : MonoSingeleton<CardManager>
 
         }
         break;
+        case 5: // Oynadığınızdansonraki tur rakip, destek kartı kullanamaz. burda effectler olmalı abi. effectlerden birisi bu olmalı
+           if (isPlayer)
+           {
+                // efekti rakibe bascak
+           }
+           else
+           {
+                // efekti bize bascak
+           }   
+        break;
+                   case 6:
+                   
+                    for (int i = 0; i < myQuads.Length; i++)
+                    {
+                        if (myQuads[i].GetComponentInChildren<CardDisplay>().card.cardID != id && myQuads[i].GetComponentInChildren<CardDisplay>().card.strong > 0 && myQuads[i].GetComponentInChildren<CardDisplay>().card.cardID != 8)
+                        {// ben değilsem ve ordu varsa ve barbar değilse o 
+                            if (isPlayer)
+                            {
+                                BattleManager.Instance.playerStrongs[i] += 3;
+                            }
+                            else
+                            {
+                                BattleManager.Instance.otherStrongs[i] += 3;
+                            }
+                           
+                        }
+                    }
+                    BattleManager.Instance.CalculateTotalPower(isPlayer);
+                    break;
+                case 9:
+                    break;
+                case 10:
+                    break;
+                case 13:
+                    break;
+                case 14:
+                    break;
+                case 15:
+                    break;
+                case 7:
+                    for (int i = 0; i < quads.Length; i++)
+                    {
+                        if (quads[i].GetComponentInChildren<CardDisplay>().card.strong != 0 && quads[i].GetComponentInChildren<CardDisplay>().card.strong %2 == 0 && quads[i].GetComponentInChildren<CardDisplay>().card.cardID != 8)
+                        {
+                            if (isPlayer)
+                            {
+                                BattleManager.Instance.otherStrongs[i] = 2;
+                            }
+                            else
+                            BattleManager.Instance.playerStrongs[i] =2;
+                        }
+                    }
+                    BattleManager.Instance.CalculateTotalPower(isPlayer);
+                    break;
+                case 8:
+                    // barbar la bu ne skilli
+                    break;
+                case 11:
+                    for (int i = 0; i < myQuads.Length; i++)
+                    {
+                        if (myQuads[i].GetComponentInChildren<CardDisplay>().card.strong == 0 && myQuads[i].GetComponentInChildren<CardDisplay>())
+                        {
+                            // Çöpe gönderme 
+                        }
+                    }
+
+                    break;
+                case 12:
+                    for (int i = 0; i < quads.Length; i++)
+                    {
+                        if (quads[i].GetComponentInChildren<CardDisplay>().card.strong == 0 && quads[i].GetComponentInChildren<CardDisplay>() && quads[i].GetComponentInChildren<CardDisplay>().card.fast == 1)
+                        {
+                            if (isPlayer)
+                            {
+                                otherSuportDeck.deck.Add(quads[i].GetComponentInChildren<CardDisplay>().card);
+                                Destroy(quads[i].GetComponentInChildren<CardDisplay>());
+                                //animasyon eklencek
+                            }
+                            else
+                            {
+                                playerSuprotDeck.deck.Add(quads[i].GetComponentInChildren<CardDisplay>().card);
+                                Destroy(quads[i].GetComponentInChildren<CardDisplay>());
+                            }
+                        }
+                    }
+                    break;
     }
    }
 }
