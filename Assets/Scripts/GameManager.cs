@@ -23,16 +23,20 @@ public class GameManager : MonoSingeleton<GameManager>
             RaycastHit info;
             if (Physics.Raycast(rayOrgin, rayDirection, out info))
             {
-                CardUI.GetComponent<CardUIDisplay>().card = info.transform.GetComponent<CardDisplay>().card;
-                CardUI.GetComponent<CardUIDisplay>().InitUI();
+                if (info.transform.GetComponent<CardDisplay>())
+                {
+                    CardUI.GetComponent<CardUIDisplay>().card = info.transform.GetComponent<CardDisplay>().card;
+                    CardUI.GetComponent<CardUIDisplay>().InitUI();
+                }
+              
+              
             }
         }
         else if(Input.GetMouseButtonDown(0))
         {
             if (CardUI.GetComponent<CardUIDisplay>().ui)
             {
-                CardUI.GetComponent<CardUIDisplay>().ui = false;
-                CardUI.GetComponent<CardUIDisplay>().KartUI.SetActive(false);
+                CardUI.GetComponent<CardUIDisplay>().CloseUI();
 
             }
         }
