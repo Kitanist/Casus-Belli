@@ -19,7 +19,7 @@ MonoBehaviour:
   cardID: 1
   strong: 1
   fast: 0
-  artwork: {fileID: 21300000, guid: b161d240046dc854999b1ee6ba62ce52, type: 3}
+  artwork: {fileID: 21300000, guid: a31feb577b5e768438351f00c4cb8a9d, type: 3}
   Class: {fileID: 21300000, guid: 51a7ac981333c24479c7477e567eaa39, type: 3}
   skill1: {fileID: 21300000, guid: 465d8353c9730af4e8a9eb36f3c20164, type: 3}
   skill2: {fileID: 21300000, guid: 56e7436d10a7dec44b2dbea3eeff743d, type: 3}
