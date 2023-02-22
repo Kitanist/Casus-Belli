@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77335160ce007774696dfdbd35fb99a1, type: 3}
+  m_Name: 20
+  m_EditorClassIdentifier: 
+  name: "Krali\xE7e"
+  description1: 
+  description2: 
+  cardID: 20
+  strong: 0
+  fast: 1
+  artwork: {fileID: 0}
+  Class: {fileID: 21300000, guid: da66403d794078848b647206b1f4c928, type: 3}
+  skill1: {fileID: 21300000, guid: d8850f9a388da704990be0f82f43803b, type: 3}
+  skill2: {fileID: 21300000, guid: 7ddfe8f7aab3fd34b9ec890c2d965bbb, type: 3}
+  speed: {fileID: 21300000, guid: f4e47ba27abbdf34991bd5d81acd3713, type: 3}
+  artworkMat: {fileID: 2100000, guid: f506df0b400369946a451a42d81040c7, type: 2}
+  ClassMat: {fileID: 2100000, guid: 2dff2b11501003f45b8116d300ff240c, type: 2}
+  Skill1Mat: {fileID: 2100000, guid: af3f692e6f0d7b9418517574a0716bf9, type: 2}
+  Skill2Mat: {fileID: 2100000, guid: 0a9f81073d5cf7f44b268a73ff33f7ce, type: 2}
+  Speedmat: {fileID: 2100000, guid: 5d0a072a9961d284491d53bee7bf8598, type: 2}

@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77335160ce007774696dfdbd35fb99a1, type: 3}
+  m_Name: 15
+  m_EditorClassIdentifier: 
+  name: Lord
+  description1: 
+  description2: 
+  cardID: 15
+  strong: 9
+  fast: 0
+  artwork: {fileID: 21300000, guid: b161d240046dc854999b1ee6ba62ce52, type: 3}
+  Class: {fileID: 21300000, guid: 51a7ac981333c24479c7477e567eaa39, type: 3}
+  skill1: {fileID: 21300000, guid: f4e47ba27abbdf34991bd5d81acd3713, type: 3}
+  skill2: {fileID: 21300000, guid: 03f0a59837b127b41a59073d259a1e56, type: 3}
+  speed: {fileID: 21300000, guid: f4e47ba27abbdf34991bd5d81acd3713, type: 3}
+  artworkMat: {fileID: 2100000, guid: 2b4da257dde211c4189a66f6c6aef055, type: 2}
+  ClassMat: {fileID: 2100000, guid: dfb8e7c20dc7e8c4f8eb8868fc057271, type: 2}
+  Skill1Mat: {fileID: 2100000, guid: 5d0a072a9961d284491d53bee7bf8598, type: 2}
+  Skill2Mat: {fileID: 2100000, guid: d22a28994aa4e3049b21466668b82eef, type: 2}
+  Speedmat: {fileID: 2100000, guid: 5d0a072a9961d284491d53bee7bf8598, type: 2}

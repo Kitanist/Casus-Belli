@@ -6,6 +6,7 @@ using TMPro;
 
 public class CardUIDisplay : MonoBehaviour
 {
+    public RectTransform rt,rt1,rt2;
     public bool ui;
     public GameObject KartUI;
     public Image artworkImage, ClassImage, skill1Image, skill2Image;
