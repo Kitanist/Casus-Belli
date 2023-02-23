@@ -14,6 +14,7 @@ public class CardDisplay : MonoBehaviour
     
     public GameObject ArtworkMat, ClassMat, skill1Mat, skill2Mat,speedMat;
     public int Choosed = 0;
+    public bool isBlocked=false;
     private void Start()
     {
       

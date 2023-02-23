@@ -9,6 +9,68 @@ public class CardManager : MonoSingeleton<CardManager>
    public ArmyDeck playerArmyDeck ,otherArmyDeck;
    public SupportDeck playerSuprotDeck,otherSuportDeck;
    public GameObject cardPrefab;
+   public void UseSkill (int id , int Chosen,GameObject [] myQuads,GameObject [] quads ,bool isPlayer ,GameObject chosenCard) {
+    // destek
+      bool canUseSkill=false;
+   if(isPlayer){
+     for(int i = 0; i <BattleManager.Instance.quadsPlayer.Length ; i++) {
+       if( BattleManager.Instance.quadsPlayer[i].GetComponentInChildren<CardDisplay>().card.cardID==id)
+        canUseSkill=true;
+    }
+   }
+   else{
+     for(int i = 0; i <BattleManager.Instance.quadsOther.Length ; i++) {
+       if( BattleManager.Instance.quadsOther[i].GetComponentInChildren<CardDisplay>().card.cardID==id)
+        canUseSkill=true;
+    }
+   }
+    // birlik
+     
+    if(canUseSkill){ //eğer kart yok edilmediyse kullan
+        
+        switch(id){
+            case 16:
+            for(int i = 0; i < quads.Length; i++) {
+                if(Chosen==1){
+               
+                        //destek kartını yok et
+                    if(isPlayer){
+                     BattleManager.Instance.otherGarbage.AddGarbage(chosenCard.GetComponentInChildren<CardDisplay>().card);
+                     chosenCard.GetComponentInChildren<CardDisplay>().isBlocked=true;
+                     Destroy(chosenCard);
+                     // animasyonlu bir şekilde çöpe yolla
+                    }else{
+                     BattleManager.Instance.playerGarbage.AddGarbage(chosenCard.GetComponentInChildren<CardDisplay>().card);
+                     chosenCard.GetComponentInChildren<CardDisplay>().isBlocked=true;
+                     Destroy(chosenCard);
+                    }
+                    
+                    
+                    
+                }
+                else if(Chosen==2){
+                    //birlik kartını desteye geri yola
+                    if(isPlayer){
+                     otherArmyDeck.deck.Add(chosenCard.GetComponentInChildren<CardDisplay>().card);
+                      chosenCard.GetComponentInChildren<CardDisplay>().isBlocked=true;
+                    chosenCard.transform.DOMove(otherArmyDeck.hand.firstSpawnPos.position,0.5f).SetEase(Ease.InQuad).OnComplete(()=>Destroy(chosenCard));
+                    }
+                    else{
+                    playerArmyDeck.deck.Add(chosenCard.GetComponentInChildren<CardDisplay>().card);
+                     chosenCard.GetComponentInChildren<CardDisplay>().isBlocked=true;
+                    chosenCard.transform.DOMove(playerArmyDeck.hand.firstSpawnPos.position,0.5f).SetEase(Ease.InQuad).OnComplete(()=>Destroy(chosenCard));
+                    }
+                    
+                    }
+
+               
+            }
+            break;
+
+        }
+
+    }
+   }
    public void UseSkill (int id , int Chosen,GameObject [] myQuads,GameObject [] quads ,bool isPlayer) {
     // destek
       bool canUseSkill=false;
@@ -27,7 +89,13 @@ public class CardManager : MonoSingeleton<CardManager>
     // birlik
      
     if(canUseSkill){ //eğer kart yok edilmediyse kullan
+        
+        switch(id){
+            case 16:
+            
+            break;
 
+        }
 
     }
    }
