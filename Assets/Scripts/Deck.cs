@@ -29,6 +29,7 @@ public class Deck : MonoBehaviour
         deck.RemoveAt(0);
         hand.handCard.Add(tmpCard);
         hand.DrawCardToHand();
+        Debug.Log("çeksene lan");
         // cekilen kartin imagesini kapa
        Image img= DeckImage[DeckImage.Count-1];
        DeckImage.RemoveAt(DeckImage.Count-1);
