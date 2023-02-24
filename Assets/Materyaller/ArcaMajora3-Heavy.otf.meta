@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 8c94f1f1dd36ecf44b552793ee45a93e
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Arca Majora 3
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: a4ab20cc4a3f71b4c8522e7e3286ab2f, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
