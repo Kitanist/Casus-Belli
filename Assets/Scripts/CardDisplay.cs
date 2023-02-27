@@ -17,7 +17,7 @@ public class CardDisplay : MonoBehaviour
     public bool isBlocked=false;
     private void Start()
     {
-      
+      Init();
     }
     public void Init () {
         nameText.text = card.name;

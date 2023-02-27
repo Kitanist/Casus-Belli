@@ -35,12 +35,12 @@ public class CardManager : MonoSingeleton<CardManager>
                
                         //destek kartını yok et
                     if(isPlayer){
-                     BattleManager.Instance.otherGarbage.AddGarbage(chosenCard.GetComponentInChildren<CardDisplay>().card);
+                     BattleManager.Instance.otherSupportGarbage.AddGarbage(chosenCard.GetComponentInChildren<CardDisplay>().card);
                      chosenCard.GetComponentInChildren<CardDisplay>().isBlocked=true;
                      Destroy(chosenCard);
                      // animasyonlu bir şekilde çöpe yolla
                     }else{
-                     BattleManager.Instance.playerGarbage.AddGarbage(chosenCard.GetComponentInChildren<CardDisplay>().card);
+                     BattleManager.Instance.playerSupportGarbage.AddGarbage(chosenCard.GetComponentInChildren<CardDisplay>().card);
                      chosenCard.GetComponentInChildren<CardDisplay>().isBlocked=true;
                      Destroy(chosenCard);
                     }
@@ -54,11 +54,14 @@ public class CardManager : MonoSingeleton<CardManager>
                      otherArmyDeck.deck.Add(chosenCard.GetComponentInChildren<CardDisplay>().card);
                       chosenCard.GetComponentInChildren<CardDisplay>().isBlocked=true;
                     chosenCard.transform.DOMove(otherArmyDeck.hand.firstSpawnPos.position,0.5f).SetEase(Ease.InQuad).OnComplete(()=>Destroy(chosenCard));
+                     BattleManager.Instance.ChancePowers(quads,isPlayer);
+                       
                     }
                     else{
                     playerArmyDeck.deck.Add(chosenCard.GetComponentInChildren<CardDisplay>().card);
                      chosenCard.GetComponentInChildren<CardDisplay>().isBlocked=true;
                     chosenCard.transform.DOMove(playerArmyDeck.hand.firstSpawnPos.position,0.5f).SetEase(Ease.InQuad).OnComplete(()=>Destroy(chosenCard));
+                      BattleManager.Instance.ChancePowers(quads,isPlayer);
                     }
                     
                     }
@@ -157,21 +160,22 @@ public class CardManager : MonoSingeleton<CardManager>
                     BattleManager.Instance.prensIsBlockedOther=true;
                     break;
                     case 18:
-                    BattleManager.Instance.otherGarbage.AddGarbage(quads[i].GetComponentInChildren<CardDisplay>().card);
-                       quads[i].GetComponentInChildren<CardDisplay>().transform.SetParent( BattleManager.Instance.otherGarbage.transform);
+                    BattleManager.Instance.otherSupportGarbage.AddGarbage(quads[i].GetComponentInChildren<CardDisplay>().card);
+                       quads[i].GetComponentInChildren<CardDisplay>().transform.SetParent( BattleManager.Instance.otherSupportGarbage.transform);
                        // burda şekilli bir animasyonla kartı yok edicez
                     break;
                     case 20:
-                     BattleManager.Instance.otherGarbage.AddGarbage(quads[i].GetComponentInChildren<CardDisplay>().card);
-                       quads[i].GetComponentInChildren<CardDisplay>().transform.SetParent( BattleManager.Instance.otherGarbage.transform);
+                     BattleManager.Instance.otherSupportGarbage.AddGarbage(quads[i].GetComponentInChildren<CardDisplay>().card);
+                       quads[i].GetComponentInChildren<CardDisplay>().transform.SetParent( BattleManager.Instance.otherSupportGarbage.transform);
                        // burda şekilli bir animasyonla kartı yok edicez
                     break;
                     case 23:
-                     BattleManager.Instance.otherGarbage.AddGarbage(quads[i].GetComponentInChildren<CardDisplay>().card);
-                       quads[i].GetComponentInChildren<CardDisplay>().transform.SetParent( BattleManager.Instance.otherGarbage.transform);
+                     BattleManager.Instance.otherSupportGarbage.AddGarbage(quads[i].GetComponentInChildren<CardDisplay>().card);
+                       quads[i].GetComponentInChildren<CardDisplay>().transform.SetParent( BattleManager.Instance.otherSupportGarbage.transform);
                        // burda şekilli bir animasyonla kartı yok edicez
                     break;
                    }
+                  
                     } 
                  
                 }
@@ -187,18 +191,18 @@ public class CardManager : MonoSingeleton<CardManager>
                     BattleManager.Instance.prensIsBlockedPlayer=true;
                     break;
                     case 18:
-                    BattleManager.Instance.playerGarbage.AddGarbage(quads[i].GetComponentInChildren<CardDisplay>().card);
-                       quads[i].GetComponentInChildren<CardDisplay>().transform.SetParent( BattleManager.Instance.playerGarbage.transform);
+                    BattleManager.Instance.playerSupportGarbage.AddGarbage(quads[i].GetComponentInChildren<CardDisplay>().card);
+                       quads[i].GetComponentInChildren<CardDisplay>().transform.SetParent( BattleManager.Instance.playerSupportGarbage.transform);
                        // burda şekilli bir animasyonla kartı yok edicez
                     break;
                     case 20:
-                     BattleManager.Instance.playerGarbage.AddGarbage(quads[i].GetComponentInChildren<CardDisplay>().card);
-                       quads[i].GetComponentInChildren<CardDisplay>().transform.SetParent( BattleManager.Instance.playerGarbage.transform);
+                     BattleManager.Instance.playerSupportGarbage.AddGarbage(quads[i].GetComponentInChildren<CardDisplay>().card);
+                       quads[i].GetComponentInChildren<CardDisplay>().transform.SetParent( BattleManager.Instance.playerSupportGarbage.transform);
                        // burda şekilli bir animasyonla kartı yok edicez
                     break;
                     case 23:
-                     BattleManager.Instance.playerGarbage.AddGarbage(quads[i].GetComponentInChildren<CardDisplay>().card);
-                       quads[i].GetComponentInChildren<CardDisplay>().transform.SetParent( BattleManager.Instance.playerGarbage.transform);
+                     BattleManager.Instance.playerSupportGarbage.AddGarbage(quads[i].GetComponentInChildren<CardDisplay>().card);
+                       quads[i].GetComponentInChildren<CardDisplay>().transform.SetParent( BattleManager.Instance.playerSupportGarbage.transform);
                        // burda şekilli bir animasyonla kartı yok edicez
                     break;
                    }

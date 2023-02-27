@@ -15,6 +15,7 @@ public class HUD : MonoBehaviour
   
   
   public void  EndTurn () {
+    
 if(hand.cardCount==GameManager.Instance.playerMaxCardCount){
        
        for(int i=0;i<dropAreaObjects.Length;i++){
@@ -56,6 +57,9 @@ if(hand.cardCount==GameManager.Instance.playerMaxCardCount){
    for(int i = 0; i < hand.emptySlot.Length ; i++) {
     hand.emptySlot[i]=true;   //hepsibi boşaltmak lazım
    }
+
+      BattleManager.Instance.StartBattle();
+
        }
        else{
         Debug.Log("EN an bir kart oynamalı");

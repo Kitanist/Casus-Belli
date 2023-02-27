@@ -44,7 +44,9 @@ private void OnMouseUp() {
         RaycastHit info;
       
         if(Physics.Raycast(rayOrgin,rayDirection, out info))
-        {
+        {   if(info.transform.tag=="Untagged"){
+             transform.DOMove(firstPos,.3f).SetEase(Ease.InBack);
+        }
             if(info.transform.tag=="Card"){
              transform.DOMove(firstPos,.3f).SetEase(Ease.InBack);
             }
