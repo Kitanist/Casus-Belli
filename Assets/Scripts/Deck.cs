@@ -11,8 +11,8 @@ public class Deck : MonoBehaviour
     public List<Image> DeckImage;
 
     public Hand  hand;
- 
-  
+
+    [System.Obsolete]
     public void Shuffle () {
 
         for(int i=0;i<deck.Count;i++){

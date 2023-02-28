@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using TMPro;
 public enum State {
     sortState,
     choseSkill,
@@ -14,7 +15,7 @@ public class BattleManager :MonoSingeleton<BattleManager>
     #region Variables
     public GameObject [] quadsPlayer;
     public GameObject [] quadsOther;
-
+    public TextMeshProUGUI EnemyTotalDisplay, PLayerTotalDisplay;
     public Garbage playerArmyGarbage,playerSupportGarbage;
     public Garbage otherArmyGarbage,otherSupportGarbage;
     public GameObject [] allQuands=new GameObject [8];
@@ -34,6 +35,11 @@ public class BattleManager :MonoSingeleton<BattleManager>
             allQuands[i]=quadsPlayer[i];
             allQuands[i+1]=quadsOther[i];
         }
+        WriteScore();
+    }
+    private void Update()
+    {
+       
     }
     #region GucHesap
     public void ChancePowers (GameObject [] quads,bool isPlayer) {
@@ -143,7 +149,7 @@ public class BattleManager :MonoSingeleton<BattleManager>
                 } 
             if(otherStrongs[i]>0){
                 
-                 CardManager.Instance.otherArmyDeck.deck.Add(quadsOther[i].GetComponentInChildren<CardDisplay>().card);
+                 CardManager.Instance.otherArmyDeck.deck.Add(quadsOther[i].GetComponentInChildren<CardDisplay>().card);// her quadı army deck e eklemeye çalışıyor fixlencek
                   quadsOther[i].GetComponentInChildren<CardDisplay>().transform.DOMove( CardManager.Instance.otherArmyDeck.hand.firstSpawnPos.position,.5f).OnComplete(()=> quadsOther[i].GetComponentInChildren<CardDisplay>().transform.DORotate(new Vector3(90, 0, 0), .1f).OnComplete(() => Destroy(quadsOther[i].GetComponentInChildren<CardDisplay>().gameObject)));
                  // dotween aniamsyonu girer kartı yokk ederiz
             }
@@ -184,7 +190,7 @@ public class BattleManager :MonoSingeleton<BattleManager>
         temp.RemoveRange(0,temp.Count); //tüm tempi sıfırla;
         
       }
-
+        WriteScore();
         resetPowers();
     }
     private void resetPowers()
@@ -196,6 +202,11 @@ public class BattleManager :MonoSingeleton<BattleManager>
             playerStrongTotal = 0;
             otherStrongTotal = 0;
         }
+    }
+    private void WriteScore()
+    {
+        PLayerTotalDisplay.text = playerStrongTotal.ToString();
+        EnemyTotalDisplay.text = otherStrongTotal.ToString();
     }
 
     public void  SkillSort () {

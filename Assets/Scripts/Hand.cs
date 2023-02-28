@@ -11,19 +11,22 @@ public class Hand : MonoBehaviour
     public List<Card> handCard;
     public GameObject CardPrefab;
     public int cardCount;
-
-   [Header(" Do Tween Animation")]
+    public TextMeshProUGUI leftCard;
+    [Header(" Do Tween Animation")]
     #region animatian Region
    public Transform firstSpawnPos;
    public Transform secondSpawnPos;
 
    public Button armyDeckButton;
    public Button supportDeckButton;
-   
-    #endregion  
- 
-    
 
+    #endregion
+
+
+    private void Update()
+    {
+        writeUI();
+    }
     public Transform [] spawnTransforms;
     public bool [] emptySlot;
 
@@ -75,5 +78,11 @@ public class Hand : MonoBehaviour
       dc.GetComponent<Collider>().enabled=true;
 
    }
-   
+    public void writeUI()
+    {
+        int a = 2;
+        a -= cardCount;
+        leftCard.text = a.ToString();
+        a = 2;
+    }
 }

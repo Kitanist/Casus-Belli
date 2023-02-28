@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoSingeleton<GameManager>
 {
    public Hand hand;
     public GameObject CardUI;
+   
    public int defaultMaxCardCount=2;
    public int playerMaxCardCount=2;
     void Start()
@@ -16,6 +18,7 @@ public class GameManager : MonoSingeleton<GameManager>
     // Update is called once per frame
     void Update()
     {
+       
         if (Input.GetMouseButtonDown(1))
         {
             var rayOrgin = Camera.main.transform.position;
@@ -41,6 +44,7 @@ public class GameManager : MonoSingeleton<GameManager>
             }
         }
     }
+   
     private Vector3 MouseWorldPos()
     {
         var mouseScreenPos = Input.mousePosition;
