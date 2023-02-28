@@ -59,7 +59,7 @@ if(hand.cardCount==GameManager.Instance.playerMaxCardCount){
    }
 
       BattleManager.Instance.StartBattle();
-
+               
        }
        else{
         Debug.Log("EN an bir kart oynamalı");

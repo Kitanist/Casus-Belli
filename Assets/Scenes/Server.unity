@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2124,6 +2124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
@@ -2245,13 +2246,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2011802382}
-        m_TargetAssemblyTypeName: SkillSelectionManager, Assembly-CSharp
-        m_MethodName: SkillSelect
-        m_Mode: 2
+      - m_Target: {fileID: 718023310}
+        m_TargetAssemblyTypeName: BattleManager, Assembly-CSharp
+        m_MethodName: GoToDeck
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 1182099467}
-          m_ObjectArgumentAssemblyTypeName: CardDisplay, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4706,7 +4707,7 @@ PrefabInstance:
     - target: {fileID: 2226766207532467129, guid: 8b4c6c84d2e318240a0b85de96d5a75a, type: 3}
       propertyPath: card
       value: 
-      objectReference: {fileID: 11400000, guid: 6102c4662339eeb4cad7eabefef58ba9, type: 2}
+      objectReference: {fileID: 11400000, guid: 7d9fcbe724fdd2d4a9cdf3bf1dcf407e, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b4c6c84d2e318240a0b85de96d5a75a, type: 3}
 --- !u!1 &887585097
@@ -6402,17 +6403,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1720678071347826637, guid: 8b4c6c84d2e318240a0b85de96d5a75a, type: 3}
   m_PrefabInstance: {fileID: 1366477812}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1182099467 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2226766207532467129, guid: 8b4c6c84d2e318240a0b85de96d5a75a, type: 3}
-  m_PrefabInstance: {fileID: 1366477812}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 147617dae1733d74c99b14742864f3f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1220298441
 GameObject:
   m_ObjectHideFlags: 0
@@ -7113,7 +7103,7 @@ PrefabInstance:
     - target: {fileID: 2226766207532467129, guid: 8b4c6c84d2e318240a0b85de96d5a75a, type: 3}
       propertyPath: card
       value: 
-      objectReference: {fileID: 11400000, guid: 7d9fcbe724fdd2d4a9cdf3bf1dcf407e, type: 2}
+      objectReference: {fileID: 11400000, guid: 6102c4662339eeb4cad7eabefef58ba9, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b4c6c84d2e318240a0b85de96d5a75a, type: 3}
 --- !u!1 &1388129218
