@@ -7,13 +7,14 @@ public enum TypeCard {
   empty,
   cardPick,
   deckPick,
+  effect
   
 }
 public class CardDisplay : MonoBehaviour
 {
     public Card card;
     
-    public TypeCard typeCard;
+   
     public TMP_Text nameText;
     public TMP_Text descriptionText, descriptionText2;
    

@@ -304,10 +304,10 @@ public class BattleManager :MonoSingeleton<BattleManager>
 
         for(int i = 0; i < quadsPlayer.Length; i++) {
             if(quadsOther[i].GetComponentInChildren<CardDisplay>()){
-                allQuands.Add(quadsOther[i].GetComponentInChildren<CardDisplay>().gameObject);
+                allQuands.Add(quadsOther[i]);
             }
             if(quadsPlayer[i].GetComponentInChildren<CardDisplay>()){
-                 allQuands.Add(quadsPlayer[i].GetComponentInChildren<CardDisplay>().gameObject);
+                 allQuands.Add(quadsPlayer[i]);
             }
         }
 
@@ -316,7 +316,7 @@ public class BattleManager :MonoSingeleton<BattleManager>
       for(int i = 0; i <allQuands.Count; i++) {  //eğer  i si ve j si de varsa sıralama algoritmasını uygula
         for(int j = 0; j<  allQuands.Count; j++) {
             
-                if(allQuands[i].GetComponentInChildren<CardDisplay>().card.fast<allQuands[j].GetComponentInChildren<CardDisplay>().card.fast){
+                if(allQuands[i].GetComponentInChildren<CardDisplay>().card.fast>allQuands[j].GetComponentInChildren<CardDisplay>().card.fast){
                 GameObject tmp = allQuands[i];
                 allQuands[i]=allQuands[j];
                 allQuands[j]=tmp;
@@ -330,40 +330,67 @@ public class BattleManager :MonoSingeleton<BattleManager>
       StartBattle();
        
     }
-public void ChoseSkill (int i) {
+    public void ChoseSkill(int i)
+    {
+        Debug.Log("1");
 
+        Debug.Log(allQuands[i].transform.tag);
 
+        //kartı parlat
 
-      
-       //kartı parlat
-       
-       if(allQuands[i].tag=="DropZone"){
-        // ekran gircek
-        SkillSelectionManager.Instance.SkillSelect(allQuands[i].GetComponentInChildren<CardDisplay>());
-        if(TypeCard.cardPick==allQuands[i].GetComponentInChildren<CardDisplay>().typeCard){
-         
+        if (allQuands[i].tag == "DropZone")
+        {
+            // ekran gircek
+
+            Debug.Log("2");
+            if (allQuands[i].GetComponentInChildren<CardDisplay>().card.strong > 0 && (allQuands[i].GetComponentInChildren<CardDisplay>().card.typeCard != TypeCard.empty))
+            {
+                Debug.Log("5");
+            }
+
+            else if (TypeCard.empty == allQuands[i].GetComponentInChildren<CardDisplay>().card.typeCard)
+            {
+                Debug.Log("6");
+            }
+            else
+            {
+                Debug.Log("0");
+                SkillSelectionManager.Instance.SkillSelect(allQuands[i].GetComponentInChildren<CardDisplay>());
+                if (SkillSelectionManager.Instance.SkillSelecte)
+                {
+                    Debug.Log("3");
+                    allQuands[i].GetComponentInChildren<CardDisplay>().Choosed = SkillSelectionManager.Instance.CD.Choosed;
+                    //SkillSelectionManager.Instance.SkillSelecte = false;
+                    //next 2 falseyi unutma herşey bitince çalışcak üstteki lavuk
+                }
+                else
+                {
+                    
+                    ChoseSkill(i);
+                }
+           
+            }
+
 
         }
-        else if(TypeCard.empty==allQuands[i].GetComponentInChildren<CardDisplay>().typeCard){
-            
+        else
+        {
+            Debug.Log("Enes");
+            // yabay zeka
         }
-        else if(TypeCard.deckPick==allQuands[i].GetComponentInChildren<CardDisplay>().typeCard){
-            
-        }
-        
-        
-       }
-       else{
-        // yabay zeka
-       }
-        
-    
+    }
 
-  
-}
 
-    //kar��la�t�ma yabcaz
-    public void RefreshGrapichs () {
+     // else if (TypeCard.cardPick == allQuands[i].GetComponentInChildren<CardDisplay>().typeCard)
+     //   {
+     //   }
+     //   
+     //   else if (TypeCard.deckPick == allQuands[i].GetComponentInChildren<CardDisplay>().typeCard)
+     //   {
+     //   }
+
+        //kar��la�t�ma yabcaz
+        public void RefreshGrapichs () {
         
     }
 IEnumerator DestroyObj(CardDisplay obj , float a){

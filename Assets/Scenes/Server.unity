@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2124,6 +2124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
@@ -2244,19 +2245,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 427922262}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 718023310}
-        m_TargetAssemblyTypeName: BattleManager, Assembly-CSharp
-        m_MethodName: GoToDeck
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &427922262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2380,12 +2369,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2011802382}
         m_TargetAssemblyTypeName: SkillSelectionManager, Assembly-CSharp
-        m_MethodName: CloseUI
-        m_Mode: 1
+        m_MethodName: SkillSelected
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -3991,15 +3980,7 @@ MonoBehaviour:
   playerSupportGarbage: {fileID: 0}
   otherArmyGarbage: {fileID: 244695309}
   otherSupportGarbage: {fileID: 0}
-  allQuands:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  allQuands: []
   state: 0
   playerStrongTotal: 0
   otherStrongTotal: 0
@@ -8415,12 +8396,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2011802382}
         m_TargetAssemblyTypeName: SkillSelectionManager, Assembly-CSharp
-        m_MethodName: CloseUI
-        m_Mode: 1
+        m_MethodName: SkillSelected
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -10042,7 +10023,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2011802382
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10056,11 +10037,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ui: 0
-  a1: {fileID: 854014399}
-  a2: {fileID: 816299772}
+  a1: {fileID: 816299772}
+  a2: {fileID: 854014399}
   a3: {fileID: 0}
   a4: {fileID: 0}
   CD: {fileID: 0}
+  SkillSelecte: 0
 --- !u!224 &2011802383
 RectTransform:
   m_ObjectHideFlags: 0
