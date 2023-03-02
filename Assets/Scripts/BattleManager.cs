@@ -19,7 +19,7 @@ public class BattleManager :MonoSingeleton<BattleManager>
     public TextMeshProUGUI EnemyTotalDisplay, PLayerTotalDisplay;
     public Garbage playerArmyGarbage,playerSupportGarbage;
     public Garbage otherArmyGarbage,otherSupportGarbage;
-    public GameObject [] allQuands=new GameObject [8];
+    public List<GameObject> allQuands;
     public State state=State.sortState;
     public int playerStrongTotal,otherStrongTotal;
     public int []playerStrongs=new int[4];
@@ -32,10 +32,7 @@ public class BattleManager :MonoSingeleton<BattleManager>
      Sequence sequance;
     private void Start() {
         sequance= DOTween.Sequence();
-        for(int i = 0; i < quadsPlayer.Length; i++) {
-            allQuands[i]=quadsPlayer[i];
-            allQuands[i+1]=quadsOther[i];
-        }
+        
         WriteScore();
     }
     private void Update()
@@ -86,7 +83,9 @@ public class BattleManager :MonoSingeleton<BattleManager>
             SkillSort();
         }
         else if(state==State.choseSkill){
-            ChoseSkill();
+         
+           
+            ChoseSkill(0);
         }
         else if(state==State.battleState){
             BattleStart();
@@ -117,7 +116,7 @@ public class BattleManager :MonoSingeleton<BattleManager>
                     if (otherStrongs[j] > playerStrongs[k] && otherStrongs[j] != 0 && playerStrongs[k] != 0)
                     {
                         temp.Add(playerStrongs[k]);
-                        Debug.Log("1");
+                      
                         // }
                     }
                 }
@@ -129,7 +128,7 @@ public class BattleManager :MonoSingeleton<BattleManager>
                         if(temp.Count>0)
                         if(quadsPlayer[m].GetComponentInChildren<CardDisplay>().card.strong==temp[0]){// cope gidecek karti belirliyor
                             playerArmyGarbage.AddGarbage(quadsPlayer[m].GetComponentInChildren<CardDisplay>().card);
-                            Debug.Log("2");
+                        
                               temp.RemoveRange(0,temp.Count); //tüm tempi sıfırla;
                             sequance.Append(quadsPlayer[m].GetComponentInChildren<CardDisplay>().gameObject.transform.DOMove(playerArmyGarbage.hand.GarbageTransform.position, .2f).SetEase(Ease.InCubic));
                             StartCoroutine(DestroyObj(quadsPlayer[m].GetComponentInChildren<CardDisplay>(),.5f));
@@ -157,7 +156,7 @@ public class BattleManager :MonoSingeleton<BattleManager>
                         StartCoroutine(DestroyObj(quadsOther[i].GetComponentInChildren<CardDisplay>(),.7f));
                         
                                
-                                Debug.Log("3");
+                                
                             
 
                         }
@@ -302,55 +301,65 @@ public class BattleManager :MonoSingeleton<BattleManager>
     }
 
     public void  SkillSort () {
-    int lastIndex=7;
-    for(int i = 0; i< allQuands.Length; i++) {  //bütün içi dolu olan quadsları dizinin başlarına taşıdım
-        if(!allQuands[i].GetComponentInChildren<CardDisplay>()){
-            GameObject tmp=allQuands[i];
-            allQuands[i]=allQuands[lastIndex];
-            allQuands[lastIndex]=tmp;
-            i=0;
-            lastIndex--;
+
+        for(int i = 0; i < quadsPlayer.Length; i++) {
+            if(quadsOther[i].GetComponentInChildren<CardDisplay>()){
+                allQuands.Add(quadsOther[i].GetComponentInChildren<CardDisplay>().gameObject);
+            }
+            if(quadsPlayer[i].GetComponentInChildren<CardDisplay>()){
+                 allQuands.Add(quadsPlayer[i].GetComponentInChildren<CardDisplay>().gameObject);
+            }
         }
-    }
 
 
 
-      for(int i = 0; i <allQuands.Length; i++) {  //eğer  i si ve j si de varsa sıralama algoritmasını uygula
-        for(int j = 0; j<  allQuands.Length; j++) {
-            if(allQuands[i].GetComponentInChildren<CardDisplay>() && allQuands[j].GetComponentInChildren<CardDisplay>()){
+      for(int i = 0; i <allQuands.Count; i++) {  //eğer  i si ve j si de varsa sıralama algoritmasını uygula
+        for(int j = 0; j<  allQuands.Count; j++) {
+            
                 if(allQuands[i].GetComponentInChildren<CardDisplay>().card.fast<allQuands[j].GetComponentInChildren<CardDisplay>().card.fast){
                 GameObject tmp = allQuands[i];
                 allQuands[i]=allQuands[j];
                 allQuands[j]=tmp;
             }
-            }
+            
            
             
         } 
       }
       state=State.choseSkill;
-
       StartBattle();
        
     }
-public void ChoseSkill () {
+public void ChoseSkill (int i) {
 
-    for(int i = 0; i < allQuands.Length; i++) {
+
+
+      
+       //kartı parlat
+       
        if(allQuands[i].tag=="DropZone"){
         // ekran gircek
-        //SkillSelectionManager.Instance.SkillSelect(allQuands[i].GetComponentInChildren<CardDisplay>());
-        
-       }
+        SkillSelectionManager.Instance.SkillSelect(allQuands[i].GetComponentInChildren<CardDisplay>());
+        if(TypeCard.cardPick==allQuands[i].GetComponentInChildren<CardDisplay>().typeCard){
+         
 
-    }
-
-    for(int i = 0; i < allQuands.Length; i++) {
-       // image ler ayarlancak
-        if(allQuands[i].GetComponentInChildren<CardDisplay>()){
-          
+        }
+        else if(TypeCard.empty==allQuands[i].GetComponentInChildren<CardDisplay>().typeCard){
+            
+        }
+        else if(TypeCard.deckPick==allQuands[i].GetComponentInChildren<CardDisplay>().typeCard){
+            
         }
         
+        
        }
+       else{
+        // yabay zeka
+       }
+        
+    
+
+  
 }
 
     //kar��la�t�ma yabcaz

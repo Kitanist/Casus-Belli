@@ -3,11 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-
+public enum TypeCard {
+  empty,
+  cardPick,
+  deckPick,
+  
+}
 public class CardDisplay : MonoBehaviour
 {
     public Card card;
     
+    public TypeCard typeCard;
     public TMP_Text nameText;
     public TMP_Text descriptionText, descriptionText2;
    
@@ -15,6 +21,8 @@ public class CardDisplay : MonoBehaviour
     public GameObject ArtworkMat, ClassMat, skill1Mat, skill2Mat,speedMat;
     public int Choosed = 0;
     public bool isBlocked=false;
+
+    
     private void Start()
     {
       Init();

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class SkillSelectionManager : MonoBehaviour
+public class SkillSelectionManager : MonoSingeleton<SkillSelectionManager>
 {
     
     public bool ui;
@@ -15,6 +15,10 @@ public class SkillSelectionManager : MonoBehaviour
     }
     public void SkillSelect(CardDisplay CD)
     {
+        // cart tiplerini değişmesi gerekiyorsa değiştir
+        
+
+
         ui = true;
         transform.LeanScale(Vector2.one, 1f).setEaseOutQuint();
         a1.LeanAlpha(1f, .75f);
