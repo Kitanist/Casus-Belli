@@ -16,7 +16,8 @@ public class Hand : MonoBehaviour
     #region animatian Region
    public Transform firstSpawnPos;
    public Transform secondSpawnPos;
-
+   public Transform GarbageTransform;
+   
    public Button armyDeckButton;
    public Button supportDeckButton;
 

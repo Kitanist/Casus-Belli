@@ -13,6 +13,7 @@ public enum State {
 public class BattleManager :MonoSingeleton<BattleManager>
 {
     #region Variables
+    
     public GameObject [] quadsPlayer;
     public GameObject [] quadsOther;
     public TextMeshProUGUI EnemyTotalDisplay, PLayerTotalDisplay;
@@ -23,7 +24,6 @@ public class BattleManager :MonoSingeleton<BattleManager>
     public int playerStrongTotal,otherStrongTotal;
     public int []playerStrongs=new int[4];
     public int []otherStrongs=new int[4];
-    
     public bool prensIsBlockedPlayer=false;
       public bool prensIsBlockedOther=false;
     public List<int>temp =new List<int>();
@@ -131,13 +131,16 @@ public class BattleManager :MonoSingeleton<BattleManager>
                             playerArmyGarbage.AddGarbage(quadsPlayer[m].GetComponentInChildren<CardDisplay>().card);
                             Debug.Log("2");
                               temp.RemoveRange(0,temp.Count); //tüm tempi sıfırla;
+                            sequance.Append(quadsPlayer[m].GetComponentInChildren<CardDisplay>().gameObject.transform.DOMove(playerArmyGarbage.hand.GarbageTransform.position, .2f).SetEase(Ease.InCubic));
+                            StartCoroutine(DestroyObj(quadsPlayer[m].GetComponentInChildren<CardDisplay>(),.5f));
                             
-                                Destroy(quadsPlayer[m].GetComponentInChildren<CardDisplay>().gameObject);
                             quadsPlayer[m].GetComponentInChildren<CardDisplay>().gameObject.SetActive(false);
                                 break;
+
+                            //transform.DOMove(spawnTransforms[handCard.Count-1].position,.2f).SetEase(Ease.InCubic);
                             //yine animasyonlu şekilce çöpe yollanır
                         }
-                    }
+                }
 
                 }
                 for(int i = 0; i <otherStrongs.Length ; i++) {
@@ -149,8 +152,10 @@ public class BattleManager :MonoSingeleton<BattleManager>
                             {
 
                                 otherArmyGarbage.AddGarbage(quadsOther[i].GetComponentInChildren<CardDisplay>().card);
-                                // dotween aniamsyonu girer kartı yokk ederiz
-                                Destroy(quadsOther[i].GetComponentInChildren<CardDisplay>().gameObject);
+                        // dotween aniamsyonu girer kartı yokk ederiz
+                        sequance.Append(quadsOther[i].GetComponentInChildren<CardDisplay>().gameObject.transform.DOMove(otherArmyGarbage.hand.GarbageTransform.position, .2f).SetEase(Ease.InCubic));
+                        StartCoroutine(DestroyObj(quadsOther[i].GetComponentInChildren<CardDisplay>(),.7f));
+                        
                                
                                 Debug.Log("3");
                             
@@ -246,13 +251,13 @@ public class BattleManager :MonoSingeleton<BattleManager>
             CardManager.Instance.playerArmyDeck.deck.Add(quadsPlayer[i].GetComponentInChildren<CardDisplay>().card);
             sequance.Append( quadsPlayer[i].GetComponentInChildren<CardDisplay>().transform.DOMove( CardManager.Instance.playerArmyDeck.hand.firstSpawnPos.position,.5f).SetEase(Ease.OutCubic));
             sequance.Append( quadsPlayer[i].GetComponentInChildren<CardDisplay>().transform.DORotate(new Vector3(90,0,0),0.1f));
-            StartCoroutine(DestroyObj(quadsPlayer[i].GetComponentInChildren<CardDisplay>()));
+            StartCoroutine(DestroyObj(quadsPlayer[i].GetComponentInChildren<CardDisplay>(),.6f));
             }// birlik kartı desteye yolla
             else{
             CardManager.Instance.playerSuprotDeck.deck.Add(quadsPlayer[i].GetComponentInChildren<CardDisplay>().card);
             sequance.Append( quadsPlayer[i].GetComponentInChildren<CardDisplay>().transform.DOMove( CardManager.Instance.playerSuprotDeck.hand.firstSpawnPos.position,.5f).SetEase(Ease.OutCubic));
             sequance.Append( quadsPlayer[i].GetComponentInChildren<CardDisplay>().transform.DORotate(new Vector3(90,0,0),0.1f));
-            StartCoroutine(DestroyObj(quadsPlayer[i].GetComponentInChildren<CardDisplay>()));
+            StartCoroutine(DestroyObj(quadsPlayer[i].GetComponentInChildren<CardDisplay>(),.6f));
             }
            
         }
@@ -265,13 +270,13 @@ public class BattleManager :MonoSingeleton<BattleManager>
             CardManager.Instance.otherArmyDeck.deck.Add(quadsOther[i].GetComponentInChildren<CardDisplay>().card);
             sequance.Append( quadsOther[i].GetComponentInChildren<CardDisplay>().transform.DOMove( CardManager.Instance.otherArmyDeck.hand.firstSpawnPos.position,.5f).SetEase(Ease.OutCubic));
             sequance.Append( quadsOther[i].GetComponentInChildren<CardDisplay>().transform.DORotate(new Vector3(90,0,0),0.1f));
-            StartCoroutine(DestroyObj(quadsOther[i].GetComponentInChildren<CardDisplay>()));
+            StartCoroutine(DestroyObj(quadsOther[i].GetComponentInChildren<CardDisplay>(),.6f));
             }// birlik kartı desteye yolla
             else{
             CardManager.Instance.otherSuportDeck.deck.Add(quadsOther[i].GetComponentInChildren<CardDisplay>().card);
             sequance.Append( quadsOther[i].GetComponentInChildren<CardDisplay>().transform.DOMove( CardManager.Instance.otherSuportDeck.hand.firstSpawnPos.position,.5f).SetEase(Ease.OutCubic));
             sequance.Append( quadsOther[i].GetComponentInChildren<CardDisplay>().transform.DORotate(new Vector3(90,0,0),0.1f));
-            StartCoroutine(DestroyObj(quadsOther[i].GetComponentInChildren<CardDisplay>()));
+            StartCoroutine(DestroyObj(quadsOther[i].GetComponentInChildren<CardDisplay>(),.6f));
             }
            
         }
@@ -352,8 +357,8 @@ public void ChoseSkill () {
     public void RefreshGrapichs () {
         
     }
-IEnumerator DestroyObj(CardDisplay obj){
-    yield return new WaitForSeconds(.6f);
+IEnumerator DestroyObj(CardDisplay obj , float a){
+    yield return new WaitForSeconds(a);
        if(obj)
        Destroy(obj.gameObject);
    

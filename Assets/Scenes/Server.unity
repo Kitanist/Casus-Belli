@@ -1294,7 +1294,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.77, y: 0.077}
   m_AnchorMax: {x: 0.85, y: 0.23}
-  m_AnchoredPosition: {x: -1335, y: -2.6259766}
+  m_AnchoredPosition: {x: -1335, y: 537}
   m_SizeDelta: {x: 6, y: -135}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &244695309
@@ -4748,6 +4748,7 @@ MonoBehaviour:
   leftCard: {fileID: 611306961}
   firstSpawnPos: {fileID: 1136992749}
   secondSpawnPos: {fileID: 568856763}
+  GarbageTransform: {fileID: 244695308}
   armyDeckButton: {fileID: 232890790}
   supportDeckButton: {fileID: 117773985}
   spawnTransforms:
@@ -5583,7 +5584,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.77, y: 0.077}
   m_AnchorMax: {x: 0.85, y: 0.23}
-  m_AnchoredPosition: {x: -1482, y: -2.6259766}
+  m_AnchoredPosition: {x: -1331, y: -2.6259766}
   m_SizeDelta: {x: 6, y: -135}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1059808273
@@ -8919,6 +8920,7 @@ MonoBehaviour:
   leftCard: {fileID: 611306961}
   firstSpawnPos: {fileID: 1454433952}
   secondSpawnPos: {fileID: 746917467}
+  GarbageTransform: {fileID: 1059808272}
   armyDeckButton: {fileID: 232890790}
   supportDeckButton: {fileID: 117773985}
   spawnTransforms:
