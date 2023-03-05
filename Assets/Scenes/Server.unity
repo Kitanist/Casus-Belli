@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2124,7 +2124,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SendPointerHoverToParent: 1
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
@@ -3043,7 +3042,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 568856762}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.18, y: 4.49, z: -7.34}
+  m_LocalPosition: {x: -3.65, y: 3.13, z: -5.84}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3648,7 +3647,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 701183436}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1.8105178, y: 1.4194694, z: -8.133712}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3989,6 +3988,8 @@ MonoBehaviour:
   prensIsBlockedPlayer: 0
   prensIsBlockedOther: 0
   temp: 
+  isCardPicingNow: 0
+  pickingCard: {fileID: 0}
 --- !u!4 &718023311
 Transform:
   m_ObjectHideFlags: 0
@@ -3996,8 +3997,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 718023309}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.277468, y: 2.316785, z: -10.008943}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4685,7 +4686,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1720678071347826637, guid: 8b4c6c84d2e318240a0b85de96d5a75a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.034
+      value: -0.12
       objectReference: {fileID: 0}
     - target: {fileID: 1720678071347826637, guid: 8b4c6c84d2e318240a0b85de96d5a75a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4762,6 +4763,7 @@ MonoBehaviour:
   GarbageTransform: {fileID: 434251440}
   armyDeckButton: {fileID: 232890790}
   supportDeckButton: {fileID: 117773985}
+  Player: 0
   spawnTransforms:
   - {fileID: 1660434048}
   - {fileID: 1843017661}
@@ -7113,7 +7115,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1720678071347826637, guid: 8b4c6c84d2e318240a0b85de96d5a75a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.021
+      value: -0.10699935
       objectReference: {fileID: 0}
     - target: {fileID: 1720678071347826637, guid: 8b4c6c84d2e318240a0b85de96d5a75a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -8814,8 +8816,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1803159627}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.02312812, y: -0.050879728, z: -5.0143685}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.02312812, y: -0.050879717, z: -5.0143685}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8965,6 +8967,7 @@ MonoBehaviour:
   GarbageTransform: {fileID: 898695177}
   armyDeckButton: {fileID: 232890790}
   supportDeckButton: {fileID: 117773985}
+  Player: 1
   spawnTransforms:
   - {fileID: 711744715}
   - {fileID: 12943469}

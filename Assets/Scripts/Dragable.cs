@@ -21,25 +21,42 @@ public class Dragable : MonoBehaviour
 
     }
     private void OnMouseDown() {
-    offset=transform.position - MouseWorldPos();
+
+
+    if(!BattleManager.Instance.isCardPicingNow ){
+         if(GetComponent<CardDisplay>().card.isPlayer){
+        offset=transform.position - MouseWorldPos();
     transform.GetComponent<Collider>().enabled=false;
     firstPos=transform.position;
+    }
+    
+    }
+    
    
     
 }
 private void OnMouseDrag() {
         
-        transform.position=MouseWorldPos();
+        if(!BattleManager.Instance.isCardPicingNow){
+            if(GetComponent<CardDisplay>().card.isPlayer){
+         transform.position=MouseWorldPos();
        transform.localPosition+=new Vector3(0,0,-0.1f);      
        float z= Mathf.Clamp(transform.localPosition.z,-.5f,3);
        transform.localPosition=new Vector3(transform.localPosition.x,transform.localPosition.y,z);
        
        // transform.position=new Vector3(MouseWorldPos().x,MouseWorldPos().y, );
+            }
+  
+        }
+       
  
 
     }
 private void OnMouseUp() {
-        var rayOrgin=Camera.main.transform.position;
+
+    if(!BattleManager.Instance.isCardPicingNow){
+            if(GetComponent<CardDisplay>().card.isPlayer){
+ var rayOrgin=Camera.main.transform.position;
         var rayDirection = MouseWorldPos()-Camera.main.transform.position;
         RaycastHit info;
       
@@ -91,7 +108,7 @@ private void OnMouseUp() {
                         }
                             
                             
-                        Debug.Log("esit "+i);
+                        
                         break;
                     }
                 }
@@ -111,11 +128,15 @@ private void OnMouseUp() {
             
         }
         else{
-            Debug.Log("ilkpos");
+        
                 transform.DOMove(firstPos,.3f).SetEase(Ease.InBack);
                
             }
-               transform.GetComponent<Collider>().enabled=true;   
+               transform.GetComponent<Collider>().enabled=true;  
+            }
+       
+    }
+         
         
     }
 private Vector3 MouseWorldPos()

@@ -53,15 +53,17 @@ public class CardManager : MonoSingeleton<CardManager>
                     if(isPlayer){
                      otherArmyDeck.deck.Add(chosenCard.GetComponentInChildren<CardDisplay>().card);
                       chosenCard.GetComponentInChildren<CardDisplay>().isBlocked=true;
-                    chosenCard.transform.DOMove(otherArmyDeck.hand.firstSpawnPos.position,0.5f).SetEase(Ease.InQuad).OnComplete(()=>Destroy(chosenCard));
+                    chosenCard.transform.DOMove(otherArmyDeck.hand.firstSpawnPos.position,0.5f).SetEase(Ease.InQuad);
                      BattleManager.Instance.ChancePowers(quads,isPlayer);
+                     StartCoroutine(DestroyCard(chosenCard,.5f));
                        
                     }
                     else{
                     playerArmyDeck.deck.Add(chosenCard.GetComponentInChildren<CardDisplay>().card);
                      chosenCard.GetComponentInChildren<CardDisplay>().isBlocked=true;
-                    chosenCard.transform.DOMove(playerArmyDeck.hand.firstSpawnPos.position,0.5f).SetEase(Ease.InQuad).OnComplete(()=>Destroy(chosenCard));
+                    chosenCard.transform.DOMove(playerArmyDeck.hand.firstSpawnPos.position,0.5f).SetEase(Ease.InQuad);
                       BattleManager.Instance.ChancePowers(quads,isPlayer);
+                      StartCoroutine(DestroyCard(chosenCard,.5f));
                     }
                     
                     }
@@ -350,5 +352,11 @@ public class CardManager : MonoSingeleton<CardManager>
                     }
                     break;
     }
+   }
+
+   IEnumerator DestroyCard(GameObject obj,float time){
+
+    yield return new WaitForSeconds(time);
+    Destroy(obj.gameObject);
    }
 }

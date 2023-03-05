@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using TMPro;
+
 public enum State {
     sortState,
     choseSkill,
@@ -27,7 +28,9 @@ public class BattleManager :MonoSingeleton<BattleManager>
     public bool prensIsBlockedPlayer=false;
       public bool prensIsBlockedOther=false;
     public List<int>temp =new List<int>();
-
+    public bool isCardPicingNow=false;
+    bool isPicked=false;
+    public GameObject pickingCard=null;
     #endregion
      Sequence sequance;
     private void Start() {
@@ -35,9 +38,68 @@ public class BattleManager :MonoSingeleton<BattleManager>
         
         WriteScore();
     }
+    
     private void Update()
     {
+       //kart seçilmesi ayarlanıyor 
+       if(isCardPicingNow){
        
+        
+         if(Input.GetMouseButtonDown(0)){
+            
+        var rayOrgin=Camera.main.transform.position;
+        var rayDirection = MouseWorldPos()-Camera.main.transform.position;
+        RaycastHit info;
+            
+             if(Physics.Raycast(rayOrgin,rayDirection, out info)){
+                
+              if(info.transform.tag=="Card"){
+                 
+                if(SkillSelectionManager.Instance.CD.Choosed==1){
+                    //destek
+                    if(info.transform.GetComponent<CardDisplay>().card.strong==0){
+                        //kart parlar
+                        pickingCard=info.transform.gameObject;  //info seçilen kartım olur yetenek ona göre çağrılır
+                        isCardPicingNow=false; 
+                        isPicked=true;
+                        StartCoroutine(DestroyObj(pickingCard.GetComponent<CardDisplay>(),.5f));
+                        Debug.Log("destek karti seçildi");
+                    }
+                    else{
+                        Debug.Log("destek tipi bir kart seçiniz");
+                        // bildirim gelir destek tipi bir kart çekiniz
+                    }
+                }
+                else if(SkillSelectionManager.Instance.CD.Choosed==2){
+                    //ordu
+                      if(info.transform.GetComponent<CardDisplay>().card.strong>0){
+                        //kart parlar
+                        pickingCard=info.transform.gameObject;  //info seçilen kartım olur yetenek ona göre çağrılır
+                        isCardPicingNow=false; 
+                        isPicked=true;
+                         StartCoroutine(DestroyObj(pickingCard.GetComponent<CardDisplay>(),.5f));
+                         Debug.Log("ordu karti seçildi");
+                    }
+                    else{
+                        Debug.Log("ordu tipi bir kart seçiniz");
+                        // bildirim gelir ordu tipi bir kart çekiniz
+                    }
+                }
+              }
+        }
+    
+       
+        
+      }
+       
+       }
+
+    }
+    private Vector3 MouseWorldPos()
+    {
+    var mouseScreenPos= Input.mousePosition;
+    mouseScreenPos.z=Camera.main.WorldToScreenPoint(transform.position).z;
+    return Camera.main.ScreenToWorldPoint(mouseScreenPos);
     }
     #region GucHesap
     public void ChancePowers (GameObject [] quads,bool isPlayer) {
@@ -332,7 +394,7 @@ public class BattleManager :MonoSingeleton<BattleManager>
     }
     public void ChoseSkill(int i)
     {
-        Debug.Log("1");
+    
 
         Debug.Log(allQuands[i].transform.tag);
 
@@ -342,35 +404,65 @@ public class BattleManager :MonoSingeleton<BattleManager>
         {
             // ekran gircek
 
-            Debug.Log("2");
+            
             if (allQuands[i].GetComponentInChildren<CardDisplay>().card.strong > 0 && (allQuands[i].GetComponentInChildren<CardDisplay>().card.typeCard != TypeCard.empty))
             {
                 //ORdu ama yeteneği var
-                Debug.Log("5");
+
             }
 
             else if (TypeCard.empty == allQuands[i].GetComponentInChildren<CardDisplay>().card.typeCard)
             {
                 //ordu yeteneksiz vasıfsız luzumusz
-                Debug.Log("6");
+                
             }
             else
             {
                 // yetenek kartı
-                Debug.Log("0");
+                
                 SkillSelectionManager.Instance.SkillSelect(allQuands[i].GetComponentInChildren<CardDisplay>());
                 if (SkillSelectionManager.Instance.SkillSelecte)
                 {
                     // eğer yetenek seçildiyse
-                    Debug.Log("3");
+                    Debug.Log("Yetenek Seçildi");
                     allQuands[i].GetComponentInChildren<CardDisplay>().Choosed = SkillSelectionManager.Instance.CD.Choosed;
+                    allQuands[i].GetComponentInChildren<CardDisplay>().card.typeCard=SkillSelectionManager.Instance.CD.card.typeCard;
+                    if(allQuands[i].GetComponentInChildren<CardDisplay>().card.typeCard==TypeCard.cardPick){
+                        isCardPicingNow=true;
+                        if(isPicked){
+                           // eğer kart seçildiyse
+                           Debug.Log("cart  seçildi");
+                        
+                           isPicked=false;
+                           //yeteneği uygula geçikmeli olarak
+                           CardManager.Instance.UseSkill(allQuands[i].GetComponentInChildren<CardDisplay>().card.cardID,allQuands[i].GetComponentInChildren<CardDisplay>().Choosed,quadsPlayer,quadsOther,true,pickingCard);
+                           
+                           SkillSelectionManager.Instance.SkillSelecte = false; // sıfırlamaları yap
+                           SkillSelectionManager.Instance.CD=null;
+                           
+                        }
+                        else{
+                              Debug.Log("cart  seçinizzzz");
+                         StartCoroutine(ChoseSkillII(i, .1f)); // EĞER sEÇİLEN ELEMAN FALSE İSE tekrar çağır
+                        }
+
+                    }
+                    else if(allQuands[i].GetComponentInChildren<CardDisplay>().card.typeCard==TypeCard.deckPick){
+
+                    }
+                    else if(allQuands[i].GetComponentInChildren<CardDisplay>().card.typeCard==TypeCard.effect){
+
+                    }
+                    else{
+
+                    }
                     //SkillSelectionManager.Instance.SkillSelecte = false;
                     //next 2 falseyi unutma herşey bitince çalışcak üstteki lavuk
                 }
                 else
                 {
                     // eğer yetenek seçilmediyse
-                    StartCoroutine(ChooseSkillI(i, 1));
+                    StartCoroutine(ChooseSkillI(i, 1f));
                 }
            
             }
@@ -408,14 +500,26 @@ IEnumerator DestroyObj(CardDisplay obj , float a){
         yield return new WaitForSeconds(a);
         GoToDeck();
     }
-   public  IEnumerator ChooseSkillI(int i,int a)
+   public  IEnumerator ChooseSkillI(int i,float a)
     {
        yield return new WaitForSeconds(a);
-         if (!SkillSelectionManager.Instance.SkillSelecte)
+         //if (!SkillSelectionManager.Instance.SkillSelecte)
+        
+            ChoseSkill(i);
+        
+        
+        
+        
+    }
+     public  IEnumerator ChoseSkillII(int i,float a)
+    {
+       yield return new WaitForSeconds(a);
+         if (!isPicked)
         {
             ChoseSkill(i);
         }
         
         
     }
+    
 }

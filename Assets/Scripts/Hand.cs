@@ -21,6 +21,7 @@ public class Hand : MonoBehaviour
    public Button armyDeckButton;
    public Button supportDeckButton;
 
+    public bool Player=false;
     #endregion
 
 
@@ -38,6 +39,10 @@ public class Hand : MonoBehaviour
     GameObject drawedCard= Instantiate(CardPrefab,spawnTransforms[handCard.Count-1]);
     drawedCard.GetComponent<CardDisplay>().card=handCard[handCard.Count-1];//cartın özelliklerini elimdeki son karta göre değiştir
     drawedCard.GetComponent<CardDisplay>().Init();// kartı çalıştır
+  
+   drawedCard.GetComponent<CardDisplay>().card.isPlayer=Player;
+       
+
 
     drawedCard.transform .position=firstSpawnPos.position;
 

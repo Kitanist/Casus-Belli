@@ -19,10 +19,10 @@ public class SkillSelectionManager : MonoSingeleton<SkillSelectionManager>
     public void SkillSelect(CardDisplay CD)
     {
         // cart tiplerini değişmesi gerekiyorsa değiştir
-        Debug.Log("7");
+        
 
 
-if(!ui){
+if(!ui && !SkillSelecte){
  ui = true;
             Skill1.text = CD.card.description1;
             Skill2.text = CD.card.description2;
@@ -40,7 +40,7 @@ if(!ui){
     public void CloseUI()
     {
         
-        if(ui){
+        if(ui && SkillSelecte){
             ui = false;
         transform.LeanScale(Vector2.zero, 1f).setEaseInQuint();
         a1.LeanAlpha(0f, .2f);
