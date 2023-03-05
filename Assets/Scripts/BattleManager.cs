@@ -345,19 +345,23 @@ public class BattleManager :MonoSingeleton<BattleManager>
             Debug.Log("2");
             if (allQuands[i].GetComponentInChildren<CardDisplay>().card.strong > 0 && (allQuands[i].GetComponentInChildren<CardDisplay>().card.typeCard != TypeCard.empty))
             {
+                //ORdu ama yeteneği var
                 Debug.Log("5");
             }
 
             else if (TypeCard.empty == allQuands[i].GetComponentInChildren<CardDisplay>().card.typeCard)
             {
+                //ordu yeteneksiz vasıfsız luzumusz
                 Debug.Log("6");
             }
             else
             {
+                // yetenek kartı
                 Debug.Log("0");
                 SkillSelectionManager.Instance.SkillSelect(allQuands[i].GetComponentInChildren<CardDisplay>());
                 if (SkillSelectionManager.Instance.SkillSelecte)
                 {
+                    // eğer yetenek seçildiyse
                     Debug.Log("3");
                     allQuands[i].GetComponentInChildren<CardDisplay>().Choosed = SkillSelectionManager.Instance.CD.Choosed;
                     //SkillSelectionManager.Instance.SkillSelecte = false;
@@ -365,8 +369,8 @@ public class BattleManager :MonoSingeleton<BattleManager>
                 }
                 else
                 {
-                    
-                    ChoseSkill(i);
+                    // eğer yetenek seçilmediyse
+                    StartCoroutine(ChooseSkillI(i, 1));
                 }
            
             }
@@ -404,4 +408,14 @@ IEnumerator DestroyObj(CardDisplay obj , float a){
         yield return new WaitForSeconds(a);
         GoToDeck();
     }
+   public  IEnumerator ChooseSkillI(int i,int a)
+    {
+       yield return new WaitForSeconds(a);
+         if (!SkillSelectionManager.Instance.SkillSelecte)
+        {
+            ChoseSkill(i);
+        }
+        
+        
     }
+}

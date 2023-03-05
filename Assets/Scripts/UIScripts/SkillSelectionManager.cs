@@ -2,14 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using TMPro;
 
 public class SkillSelectionManager : MonoSingeleton<SkillSelectionManager>
 {
     
-    public bool ui;
+    public bool ui = false;
     public CanvasGroup a1, a2, a3, a4;
     public CardDisplay CD;
     public bool SkillSelecte= false;
+    public TextMeshProUGUI Skill1, Skill2;
     private void Start()
     {
         transform.localScale = Vector2.zero;
@@ -19,17 +21,19 @@ public class SkillSelectionManager : MonoSingeleton<SkillSelectionManager>
         // cart tiplerini değişmesi gerekiyorsa değiştir
         Debug.Log("7");
 
+
 if(!ui){
  ui = true;
-    
-        transform.LeanScale(Vector2.one, 1f).setEaseOutQuint();
+            Skill1.text = CD.card.description1;
+            Skill2.text = CD.card.description2;
+            transform.LeanScale(Vector2.one, 1f).setEaseOutQuint();
         a1.LeanAlpha(1f, 1f);
         a2.LeanAlpha(1f, 1f);
        //a3.LeanAlpha(1f, 1.5f);
        // a4.LeanAlpha(1f, 1.5f);
-    
+     this.CD = CD;
 }
-           this.CD = CD;
+          
        
        
     }
@@ -51,6 +55,7 @@ if(!ui){
     public void SkillSelected(int a)
     {
         CD.Choosed = a;
+        StopCoroutine(BattleManager.Instance.ChooseSkillI(0,0));
         CloseUI();
         SkillController();
         SkillSelecte = true;
