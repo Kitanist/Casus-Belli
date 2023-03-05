@@ -12,6 +12,6 @@ public class Garbage : Deck
     GameObject imgObj=Instantiate(imagePrefab,this.transform);
     imgObj.transform.parent=this.transform;
     DeckImage.Add(imgObj.GetComponent<Image>());
-
+    
    }
 }
