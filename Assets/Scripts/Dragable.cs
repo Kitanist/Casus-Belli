@@ -24,7 +24,7 @@ public class Dragable : MonoBehaviour
 
 
     if(!BattleManager.Instance.isCardPicingNow ){
-         if(GetComponent<CardDisplay>().card.isPlayer){
+         if(GetComponent<CardDisplay>().isPlayer){
         offset=transform.position - MouseWorldPos();
     transform.GetComponent<Collider>().enabled=false;
     firstPos=transform.position;
@@ -38,7 +38,7 @@ public class Dragable : MonoBehaviour
 private void OnMouseDrag() {
         
         if(!BattleManager.Instance.isCardPicingNow){
-            if(GetComponent<CardDisplay>().card.isPlayer){
+            if(GetComponent<CardDisplay>().isPlayer){
          transform.position=MouseWorldPos();
        transform.localPosition+=new Vector3(0,0,-0.1f);      
        float z= Mathf.Clamp(transform.localPosition.z,-.5f,3);
@@ -55,7 +55,7 @@ private void OnMouseDrag() {
 private void OnMouseUp() {
 
     if(!BattleManager.Instance.isCardPicingNow){
-            if(GetComponent<CardDisplay>().card.isPlayer){
+            if(GetComponent<CardDisplay>().isPlayer){
  var rayOrgin=Camera.main.transform.position;
         var rayDirection = MouseWorldPos()-Camera.main.transform.position;
         RaycastHit info;

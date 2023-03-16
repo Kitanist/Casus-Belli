@@ -29,4 +29,4 @@ MonoBehaviour:
   Skill1Mat: {fileID: 2100000, guid: 0f13840036cdc3347aace71916de8179, type: 2}
   Skill2Mat: {fileID: 2100000, guid: f80bc548ce72bb14ebb4a30476338848, type: 2}
   Speedmat: {fileID: 2100000, guid: 7d0ca7054e987954c86114104c53d761, type: 2}
-  isPlayer: 1
+  isPlayer: 0

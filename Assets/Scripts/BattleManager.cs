@@ -31,6 +31,8 @@ public class BattleManager :MonoSingeleton<BattleManager>
     public bool isCardPicingNow=false;
     bool isPicked=false;
     public GameObject pickingCard=null;
+
+
     #endregion
      Sequence sequance;
     private void Start() {
@@ -62,8 +64,10 @@ public class BattleManager :MonoSingeleton<BattleManager>
                         pickingCard=info.transform.gameObject;  //info seçilen kartım olur yetenek ona göre çağrılır
                         isCardPicingNow=false; 
                         isPicked=true;
-                        StartCoroutine(DestroyObj(pickingCard.GetComponent<CardDisplay>(),.5f));
+                     
                         Debug.Log("destek karti seçildi");
+                         ChoseSkill(0);
+
                     }
                     else{
                         Debug.Log("destek tipi bir kart seçiniz");
@@ -77,8 +81,9 @@ public class BattleManager :MonoSingeleton<BattleManager>
                         pickingCard=info.transform.gameObject;  //info seçilen kartım olur yetenek ona göre çağrılır
                         isCardPicingNow=false; 
                         isPicked=true;
-                         StartCoroutine(DestroyObj(pickingCard.GetComponent<CardDisplay>(),.5f));
+                      
                          Debug.Log("ordu karti seçildi");
+                         ChoseSkill(0);
                     }
                     else{
                         Debug.Log("ordu tipi bir kart seçiniz");
@@ -366,9 +371,11 @@ public class BattleManager :MonoSingeleton<BattleManager>
 
         for(int i = 0; i < quadsPlayer.Length; i++) {
             if(quadsOther[i].GetComponentInChildren<CardDisplay>()){
+                if(quadsOther[i].GetComponentInChildren<CardDisplay>().card.typeCard!=TypeCard.empty)
                 allQuands.Add(quadsOther[i]);
             }
             if(quadsPlayer[i].GetComponentInChildren<CardDisplay>()){
+                if(quadsPlayer[i].GetComponentInChildren<CardDisplay>().card.typeCard!=TypeCard.empty)
                  allQuands.Add(quadsPlayer[i]);
             }
         }
@@ -419,7 +426,7 @@ public class BattleManager :MonoSingeleton<BattleManager>
             else
             {
                 // yetenek kartı
-                
+               if (!SkillSelectionManager.Instance.SkillSelecte)
                 SkillSelectionManager.Instance.SkillSelect(allQuands[i].GetComponentInChildren<CardDisplay>());
                 if (SkillSelectionManager.Instance.SkillSelecte)
                 {
@@ -432,18 +439,23 @@ public class BattleManager :MonoSingeleton<BattleManager>
                         if(isPicked){
                            // eğer kart seçildiyse
                            Debug.Log("cart  seçildi");
-                        
+                            isCardPicingNow=false; 
                            isPicked=false;
                            //yeteneği uygula geçikmeli olarak
                            CardManager.Instance.UseSkill(allQuands[i].GetComponentInChildren<CardDisplay>().card.cardID,allQuands[i].GetComponentInChildren<CardDisplay>().Choosed,quadsPlayer,quadsOther,true,pickingCard);
                            
                            SkillSelectionManager.Instance.SkillSelecte = false; // sıfırlamaları yap
                            SkillSelectionManager.Instance.CD=null;
-                           
+                        
+                        
+                           Destroy( allQuands[0].GetComponentInChildren<CardDisplay>().gameObject);
+                           allQuands.RemoveAt(0);
+                           StartCoroutine( DestroyObj(pickingCard.GetComponentInChildren<CardDisplay>(),.5f));
+                  
                         }
                         else{
                               Debug.Log("cart  seçinizzzz");
-                         StartCoroutine(ChoseSkillII(i, .1f)); // EĞER sEÇİLEN ELEMAN FALSE İSE tekrar çağır
+                         StartCoroutine(ChoseSkillII(0, .1f)); // EĞER sEÇİLEN ELEMAN FALSE İSE tekrar çağır
                         }
 
                     }
@@ -462,7 +474,7 @@ public class BattleManager :MonoSingeleton<BattleManager>
                 else
                 {
                     // eğer yetenek seçilmediyse
-                    StartCoroutine(ChooseSkillI(i, 1f));
+                    StartCoroutine(ChooseSkillI(0, 5f));
                 }
            
             }
@@ -504,7 +516,7 @@ IEnumerator DestroyObj(CardDisplay obj , float a){
     {
        yield return new WaitForSeconds(a);
          //if (!SkillSelectionManager.Instance.SkillSelecte)
-        
+            if(allQuands.Count>0)
             ChoseSkill(i);
         
         
@@ -516,6 +528,7 @@ IEnumerator DestroyObj(CardDisplay obj , float a){
        yield return new WaitForSeconds(a);
          if (!isPicked)
         {
+            if(allQuands.Count>0)
             ChoseSkill(i);
         }
         

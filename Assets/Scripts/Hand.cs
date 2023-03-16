@@ -40,7 +40,7 @@ public class Hand : MonoBehaviour
     drawedCard.GetComponent<CardDisplay>().card=handCard[handCard.Count-1];//cartın özelliklerini elimdeki son karta göre değiştir
     drawedCard.GetComponent<CardDisplay>().Init();// kartı çalıştır
   
-   drawedCard.GetComponent<CardDisplay>().card.isPlayer=Player;
+   drawedCard.GetComponent<CardDisplay>().isPlayer=Player;
        
 
 

@@ -55,7 +55,7 @@ if(!ui && !SkillSelecte){
     public void SkillSelected(int a)
     {
         CD.Choosed = a;
-        StopCoroutine(BattleManager.Instance.ChooseSkillI(0,0));
+        
         CloseUI();
         SkillController();
         SkillSelecte = true;

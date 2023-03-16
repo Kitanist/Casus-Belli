@@ -11,7 +11,7 @@ public class Card : ScriptableObject
     public Sprite artwork,Class,skill1,skill2,speed;// kart�n resmini ve 4 k��esindeki yuvalaklar�n iconlar�n� yerle�tirmek i�in
     public Material artworkMat, ClassMat, Skill1Mat, Skill2Mat, Speedmat;
 
-     public bool isPlayer=false;
+   
    
      
     

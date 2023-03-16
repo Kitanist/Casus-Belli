@@ -14,12 +14,15 @@ public class CardManager : MonoSingeleton<CardManager>
       bool canUseSkill=false;
    if(isPlayer){
      for(int i = 0; i <BattleManager.Instance.quadsPlayer.Length ; i++) {
+        if( BattleManager.Instance.quadsPlayer[i].GetComponentInChildren<CardDisplay>())
        if( BattleManager.Instance.quadsPlayer[i].GetComponentInChildren<CardDisplay>().card.cardID==id)
         canUseSkill=true;
     }
    }
    else{
+
      for(int i = 0; i <BattleManager.Instance.quadsOther.Length ; i++) {
+        if( BattleManager.Instance.quadsPlayer[i].GetComponentInChildren<CardDisplay>())
        if( BattleManager.Instance.quadsOther[i].GetComponentInChildren<CardDisplay>().card.cardID==id)
         canUseSkill=true;
     }
@@ -37,12 +40,12 @@ public class CardManager : MonoSingeleton<CardManager>
                     if(isPlayer){
                      BattleManager.Instance.otherSupportGarbage.AddGarbage(chosenCard.GetComponentInChildren<CardDisplay>().card);
                      chosenCard.GetComponentInChildren<CardDisplay>().isBlocked=true;
-                     Destroy(chosenCard);
+                     
                      // animasyonlu bir şekilde çöpe yolla
                     }else{
                      BattleManager.Instance.playerSupportGarbage.AddGarbage(chosenCard.GetComponentInChildren<CardDisplay>().card);
                      chosenCard.GetComponentInChildren<CardDisplay>().isBlocked=true;
-                     Destroy(chosenCard);
+                    
                     }
                     
                     
@@ -55,7 +58,8 @@ public class CardManager : MonoSingeleton<CardManager>
                       chosenCard.GetComponentInChildren<CardDisplay>().isBlocked=true;
                     chosenCard.transform.DOMove(otherArmyDeck.hand.firstSpawnPos.position,0.5f).SetEase(Ease.InQuad);
                      BattleManager.Instance.ChancePowers(quads,isPlayer);
-                     StartCoroutine(DestroyCard(chosenCard,.5f));
+                    DestroyCard(chosenCard.transform.GetComponentInChildren<CardDisplay>().gameObject,.5f);
+                     Debug.Log("yok ettim");
                        
                     }
                     else{
@@ -63,7 +67,8 @@ public class CardManager : MonoSingeleton<CardManager>
                      chosenCard.GetComponentInChildren<CardDisplay>().isBlocked=true;
                     chosenCard.transform.DOMove(playerArmyDeck.hand.firstSpawnPos.position,0.5f).SetEase(Ease.InQuad);
                       BattleManager.Instance.ChancePowers(quads,isPlayer);
-                      StartCoroutine(DestroyCard(chosenCard,.5f));
+                     DestroyCard(chosenCard.transform.GetComponentInChildren<CardDisplay>().gameObject,.5f);
+                       Debug.Log("yok ettim");
                     }
                     
                     }
