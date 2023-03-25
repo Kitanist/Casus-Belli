@@ -5,6 +5,9 @@ using UnityEngine.UI;
 using TMPro;
 public enum TypeCard {
   empty,
+  thief,
+
+  oneShot,
   cardPick,
   deckPick,
   effect

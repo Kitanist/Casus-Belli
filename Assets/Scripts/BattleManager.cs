@@ -9,6 +9,7 @@ public enum State {
     sortState,
     choseSkill,
 
+    buffState,
     battleState
 }
 public class BattleManager :MonoSingeleton<BattleManager>
@@ -447,16 +448,30 @@ public class BattleManager :MonoSingeleton<BattleManager>
                            SkillSelectionManager.Instance.SkillSelecte = false; // sıfırlamaları yap
                            SkillSelectionManager.Instance.CD=null;
                         
-                        
+                           
                            Destroy( allQuands[0].GetComponentInChildren<CardDisplay>().gameObject);
                            allQuands.RemoveAt(0);
-                           StartCoroutine( DestroyObj(pickingCard.GetComponentInChildren<CardDisplay>(),.5f));
-                  
+                         
+                           // yok edilen kart al quads tan çıkarılmalı
+                           for(int k = 0; k < allQuands.Count; k++) {
+                            if(!pickingCard.GetComponentInChildren<CardDisplay>().isPlayer){
+                                if(pickingCard.GetComponentInChildren<CardDisplay>().card.cardID==allQuands[k].GetComponentInChildren<CardDisplay>().card.cardID)
+                                allQuands.RemoveAt(k);
+                            }
+                           }
+                            StartCoroutine( DestroyObj(pickingCard.GetComponentInChildren<CardDisplay>(),.5f));
+                           StartCoroutine(ChooseSkillI(0, 5f));
                         }
                         else{
                               Debug.Log("cart  seçinizzzz");
-                         StartCoroutine(ChoseSkillII(0, .1f)); // EĞER sEÇİLEN ELEMAN FALSE İSE tekrar çağır
+                        
                         }
+
+                    }
+                    else if(allQuands[i].GetComponentInChildren<CardDisplay>().card.typeCard==TypeCard.thief){
+
+                    }
+                    else if(allQuands[i].GetComponentInChildren<CardDisplay>().card.typeCard==TypeCard.oneShot){
 
                     }
                     else if(allQuands[i].GetComponentInChildren<CardDisplay>().card.typeCard==TypeCard.deckPick){
@@ -474,7 +489,7 @@ public class BattleManager :MonoSingeleton<BattleManager>
                 else
                 {
                     // eğer yetenek seçilmediyse
-                    StartCoroutine(ChooseSkillI(0, 5f));
+                    StartCoroutine(ChooseSkillI(0, .5f));
                 }
            
             }
