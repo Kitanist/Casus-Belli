@@ -459,6 +459,7 @@ public class BattleManager :MonoSingeleton<BattleManager>
                                 allQuands.RemoveAt(k);
                             }
                            }
+                           Debug.Log("burda yok etmesi gerek");
                             StartCoroutine( DestroyObj(pickingCard.GetComponentInChildren<CardDisplay>(),.5f));
                            StartCoroutine(ChooseSkillI(0, 5f));
                         }

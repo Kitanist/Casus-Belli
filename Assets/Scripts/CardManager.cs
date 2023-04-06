@@ -40,12 +40,13 @@ public class CardManager : MonoSingeleton<CardManager>
                     if(isPlayer){
                      BattleManager.Instance.otherSupportGarbage.AddGarbage(chosenCard.GetComponentInChildren<CardDisplay>().card);
                      chosenCard.GetComponentInChildren<CardDisplay>().isBlocked=true;
+                     //StartCoroutine(DestroyCard(chosenCard.transform.GetComponentInChildren<CardDisplay>().gameObject,.5f)) ;
                      
                      // animasyonlu bir şekilde çöpe yolla
                     }else{
                      BattleManager.Instance.playerSupportGarbage.AddGarbage(chosenCard.GetComponentInChildren<CardDisplay>().card);
                      chosenCard.GetComponentInChildren<CardDisplay>().isBlocked=true;
-                    
+                     //StartCoroutine(DestroyCard(chosenCard.transform.GetComponentInChildren<CardDisplay>().gameObject,.5f)) ;
                     }
                     
                     
@@ -58,7 +59,7 @@ public class CardManager : MonoSingeleton<CardManager>
                       chosenCard.GetComponentInChildren<CardDisplay>().isBlocked=true;
                     chosenCard.transform.DOMove(otherArmyDeck.hand.firstSpawnPos.position,0.5f).SetEase(Ease.InQuad);
                      BattleManager.Instance.ChancePowers(quads,isPlayer);
-                    // StartCoroutine(DestroyCard(chosenCard.transform.GetComponentInChildren<CardDisplay>().gameObject,.5f)) ;
+                   //  StartCoroutine(DestroyCard(chosenCard.transform.GetComponentInChildren<CardDisplay>().gameObject,.5f)) ;
                      Debug.Log("yok ettim");
                        
                     }
@@ -67,7 +68,7 @@ public class CardManager : MonoSingeleton<CardManager>
                      chosenCard.GetComponentInChildren<CardDisplay>().isBlocked=true;
                     chosenCard.transform.DOMove(playerArmyDeck.hand.firstSpawnPos.position,0.5f).SetEase(Ease.InQuad);
                       BattleManager.Instance.ChancePowers(quads,isPlayer);
-                     //StartCoroutine(DestroyCard(chosenCard.transform.GetComponentInChildren<CardDisplay>().gameObject,.5f)) ;
+                   //  StartCoroutine(DestroyCard(chosenCard.transform.GetComponentInChildren<CardDisplay>().gameObject,.5f)) ;
                        Debug.Log("yok ettim");
                     }
                     
@@ -101,7 +102,7 @@ public class CardManager : MonoSingeleton<CardManager>
     if(canUseSkill){ //eğer kart yok edilmediyse kullan
         
         switch(id){
-            case 16:
+            case 17:
             
             break;
 

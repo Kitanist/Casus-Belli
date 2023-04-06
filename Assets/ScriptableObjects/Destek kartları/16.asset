@@ -18,7 +18,7 @@ MonoBehaviour:
   cardID: 16
   strong: 0
   fast: 5
-  typeCard: 1
+  typeCard: 3
   artwork: {fileID: 21300000, guid: fe17c62d07cbaf04c85f9a72277b5a46, type: 3}
   Class: {fileID: 21300000, guid: da66403d794078848b647206b1f4c928, type: 3}
   skill1: {fileID: 21300000, guid: e4841c75203031a46aa40b6fefb2d527, type: 3}
@@ -29,4 +29,3 @@ MonoBehaviour:
   Skill1Mat: {fileID: 2100000, guid: 48ea4ea63f7750848948f439e29d91cd, type: 2}
   Skill2Mat: {fileID: 2100000, guid: b9402671d02720a468d1c0eb4330a52a, type: 2}
   Speedmat: {fileID: 2100000, guid: 824661f934091f24c84a6d79cde51dd8, type: 2}
-  isPlayer: 0
