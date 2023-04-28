@@ -12,7 +12,7 @@ public class Deck : MonoBehaviour
 
     public Hand  hand;
     private void Start() {
-        
+      
     }
     [System.Obsolete]
     public void Shuffle () {
@@ -31,11 +31,12 @@ public class Deck : MonoBehaviour
         deck.RemoveAt(0);
         hand.handCard.Add(tmpCard);
         hand.DrawCardToHand();
-        Debug.Log("çeksene lan");
+ 
         // cekilen kartin imagesini kapa
-       Image img= DeckImage[DeckImage.Count-1];
+      /* Image img= DeckImage[DeckImage.Count-1];
        DeckImage.RemoveAt(DeckImage.Count-1);
-       Destroy(img);
+       Destroy(img);*/
+      
         }
         else{
             // daha fazla kart çekilemez bildirimi

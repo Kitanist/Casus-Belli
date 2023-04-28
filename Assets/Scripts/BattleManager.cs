@@ -10,7 +10,8 @@ public enum State {
     choseSkill,
 
     buffState,
-    battleState
+    battleState,
+    TurSonu
 }
 public class BattleManager :MonoSingeleton<BattleManager>
 {
@@ -32,7 +33,7 @@ public class BattleManager :MonoSingeleton<BattleManager>
     public bool isCardPicingNow=false;
     bool isPicked=false;
     public GameObject pickingCard=null;
-
+    public GameObject resimPrefab;
 
     #endregion
      Sequence sequance;
@@ -169,7 +170,8 @@ public class BattleManager :MonoSingeleton<BattleManager>
         ChancePowers(quadsOther,false);
         CalculateTotalPower(true);
         CalculateTotalPower(false);
-      
+
+    
 
       //for(int i = 0; i < playerStrongs.Length; i++) {
         
@@ -224,7 +226,7 @@ public class BattleManager :MonoSingeleton<BattleManager>
                         StartCoroutine(DestroyObj(quadsOther[i].GetComponentInChildren<CardDisplay>(),.7f));
                         
                                
-                                
+                               
                             
 
                         }
@@ -298,6 +300,16 @@ public class BattleManager :MonoSingeleton<BattleManager>
                     }
                    
                 }
+                for(int i = 0; i <otherStrongs.Length ; i++) {
+                    if(quadsOther[i].GetComponentInChildren<CardDisplay>()){
+                    otherArmyGarbage.AddGarbage(quadsOther[i].GetComponentInChildren<CardDisplay>().card);
+                    // dotween aniamsyonu girer kartı yokk ederiz
+                    Destroy(quadsOther[i].GetComponentInChildren<CardDisplay>().gameObject);
+                  
+                    }
+                   
+                }
+
 
               
                  
@@ -310,7 +322,7 @@ public class BattleManager :MonoSingeleton<BattleManager>
         resetPowers();
     }
    
-    public void GoToDeck () {
+    public void GoToDeck () { // o desteye image eklemen gerekiyor
     for(int i = 0; i < quadsPlayer.Length; i++) {
         if(quadsPlayer[i].GetComponentInChildren<CardDisplay>()){
                 Debug.Log("1");
@@ -319,6 +331,7 @@ public class BattleManager :MonoSingeleton<BattleManager>
             sequance.Append( quadsPlayer[i].GetComponentInChildren<CardDisplay>().transform.DOMove( CardManager.Instance.playerArmyDeck.hand.firstSpawnPos.position,.5f).SetEase(Ease.OutCubic));
             sequance.Append( quadsPlayer[i].GetComponentInChildren<CardDisplay>().transform.DORotate(new Vector3(90,0,0),0.1f));
             StartCoroutine(DestroyObj(quadsPlayer[i].GetComponentInChildren<CardDisplay>(),.6f));
+            //Instantiate(resimPrefab,)
             }// birlik kartı desteye yolla
             else{
             CardManager.Instance.playerSuprotDeck.deck.Add(quadsPlayer[i].GetComponentInChildren<CardDisplay>().card);
@@ -334,6 +347,7 @@ public class BattleManager :MonoSingeleton<BattleManager>
         if(quadsOther[i].GetComponentInChildren<CardDisplay>()){
                 Debug.Log("2");
                 if (quadsOther[i].GetComponentInChildren<CardDisplay>().card.strong>0){
+                        Debug.Log("3");
             CardManager.Instance.otherArmyDeck.deck.Add(quadsOther[i].GetComponentInChildren<CardDisplay>().card);
             sequance.Append( quadsOther[i].GetComponentInChildren<CardDisplay>().transform.DOMove( CardManager.Instance.otherArmyDeck.hand.firstSpawnPos.position,.5f).SetEase(Ease.OutCubic));
             sequance.Append( quadsOther[i].GetComponentInChildren<CardDisplay>().transform.DORotate(new Vector3(90,0,0),0.1f));

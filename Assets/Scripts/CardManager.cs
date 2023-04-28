@@ -111,11 +111,12 @@ public class CardManager : MonoSingeleton<CardManager>
     }
    }
    public void UseSkill (int id,GameObject [] myQuads, GameObject [] quads,bool isPlayer) {
-    bool canUseSkill=false;
+   /* bool canUseSkill=false;
    if(isPlayer){
      for(int i = 0; i <BattleManager.Instance.quadsPlayer.Length ; i++) {
        if( BattleManager.Instance.quadsPlayer[i].GetComponentInChildren<CardDisplay>().card.cardID==id)
         canUseSkill=true;
+     
     }
    }
    else{
@@ -125,8 +126,8 @@ public class CardManager : MonoSingeleton<CardManager>
     }
    }
     // birlik
-     
-    if(canUseSkill)//eğer kart yok edilmediyse kullan
+     */
+    //if(canUseSkill)//eğer kart yok edilmediyse kullan
     switch(id){
         case 1:
         bool IsHapend=false;

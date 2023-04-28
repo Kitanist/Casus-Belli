@@ -8,6 +8,8 @@ public class HUD : MonoBehaviour
 {
   
   public Hand hand;
+  public Hand otherHand;
+  public AI_Enemy enemy;
   public ArmyDeck armyDeck;
   public SupportDeck supDeck;
   private bool playerIsPlay=false;
@@ -15,6 +17,7 @@ public class HUD : MonoBehaviour
   
   
   public void  EndTurn () {
+    
     
 if(hand.cardCount==GameManager.Instance.playerMaxCardCount){
        
@@ -42,24 +45,44 @@ if(hand.cardCount==GameManager.Instance.playerMaxCardCount){
         }
     }
     hand.handCard.RemoveRange(0,hand.handCard.Count);// eldeki kartları temizle
-    GameManager.Instance.hand.cardCount=0;//çekilen kart sayısını sıfırla
+    GameManager.Instance.hand.cardCount=0;//çekilen kart sayısını sıfırla,
+    //elde kalan kartı temizleme player içn
    CardDisplay[] obj= hand.GetComponentsInChildren<CardDisplay>();
    playerIsPlay=false;
    for(int i=0;i<obj.Length;i++){
     if(obj[i]){
    obj[i].transform.DORotate(new Vector3(90,0,0),.1f);
    obj[i].transform.DOMove(hand.firstSpawnPos.position,0.5f).SetEase(Ease.InCubic);
-    }
+
    
+    }
    }
    StartCoroutine(DestroyObj(obj));//objlerin yok edilmesi için  sahne düzenlendi
+
+   //elde kalan kartı temizleme enemy için
+   CardDisplay[] obj2= otherHand.GetComponentsInChildren<CardDisplay>();
+   playerIsPlay=false;
+   for(int i=0;i<obj2.Length;i++){
+    if(obj2[i]){
+   obj2[i].transform.DORotate(new Vector3(90,0,0),.1f);
+   obj2[i].transform.DOMove(otherHand.firstSpawnPos.position,0.5f).SetEase(Ease.InCubic);
+
+   
+    }
+   }
+   StartCoroutine(DestroyObj(obj2));//objlerin yok edilmesi için  sahne düzenlendi
+
+
    
    for(int i = 0; i < hand.emptySlot.Length ; i++) {
     hand.emptySlot[i]=true;   //hepsibi boşaltmak lazım
    }
 
       BattleManager.Instance.StartBattle();
-               
+         enemy.HandReset();  
+         StartCoroutine(EndTurnDelay());  
+      
+          
        }
        else{
         Debug.Log("EN an bir kart oynamalı");
@@ -80,6 +103,11 @@ if(hand.cardCount==GameManager.Instance.playerMaxCardCount){
       if(obj[i])
        Destroy(obj[i].gameObject);
    }
+  }
+  IEnumerator EndTurnDelay(){
+    yield return new WaitForSeconds(2);
+    enemy.StartCoroutine(enemy.DrawHandCard());
+      enemy.StartCoroutine(enemy.Delay());
   }
 
 }
